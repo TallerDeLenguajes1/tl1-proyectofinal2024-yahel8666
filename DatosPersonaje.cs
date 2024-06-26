@@ -3,17 +3,20 @@ public class DatosPersonaje
 {
     string nombre;
     string tipo;
-    int anioNacimiento;
+    DateTime fechaNac;
+    int edad; 
 
     public string Nombre { get => nombre; set => nombre = value; }
     public string Tipo { get => tipo; set => tipo = value; }
-    public int AnioNacimiento { get => anioNacimiento; set => anioNacimiento = value; }
-    
-    public DatosPersonaje(string nombre, string tipo, int anioNacimiento)
+    public DateTime FechaNac { get => fechaNac; set => fechaNac = value; }
+    public int Edad { get => edad; set => edad = value; }
+
+    public DatosPersonaje(string nombre, string tipo, DateTime fechaNac, int edad)
     {
         this.nombre = nombre;
         this.tipo = tipo;
-        this.anioNacimiento = anioNacimiento;
+        this.fechaNac = fechaNac;
+        this.edad = edad; 
     }
 
 }

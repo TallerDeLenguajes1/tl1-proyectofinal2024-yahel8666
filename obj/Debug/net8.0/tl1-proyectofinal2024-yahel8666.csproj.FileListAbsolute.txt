@@ -1,0 +1,23 @@
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Práctica\tl1-proyectofinal2024-yahel8666\bin\Debug\net8.0\tl1-proyectofinal2024-yahel8666.exe
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Práctica\tl1-proyectofinal2024-yahel8666\bin\Debug\net8.0\tl1-proyectofinal2024-yahel8666.deps.json
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Práctica\tl1-proyectofinal2024-yahel8666\bin\Debug\net8.0\tl1-proyectofinal2024-yahel8666.runtimeconfig.json
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Práctica\tl1-proyectofinal2024-yahel8666\bin\Debug\net8.0\tl1-proyectofinal2024-yahel8666.dll
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Práctica\tl1-proyectofinal2024-yahel8666\bin\Debug\net8.0\tl1-proyectofinal2024-yahel8666.pdb
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Práctica\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\tl1-proyectofinal2024-yahel8666.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Práctica\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\tl1-proyectofinal2024-yahel8666.AssemblyInfoInputs.cache
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Práctica\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\tl1-proyectofinal2024-yahel8666.AssemblyInfo.cs
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Práctica\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\tl1-proyectofinal2024-yahel8666.csproj.CoreCompileInputs.cache
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Práctica\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\tl1-proyectofinal2024-yahel8666.dll
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Práctica\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\refint\tl1-proyectofinal2024-yahel8666.dll
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Práctica\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\tl1-proyectofinal2024-yahel8666.pdb
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Práctica\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\tl1-proyectofinal2024-yahel8666.genruntimeconfig.cache
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Práctica\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\ref\tl1-proyectofinal2024-yahel8666.dll
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Práctica\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\tl1-proyectofinal2024-yahel8666.sourcelink.json
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Operacion Aprobar Proyecto\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\tl1-proyectofinal2024-yahel8666.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Operacion Aprobar Proyecto\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\tl1-proyectofinal2024-yahel8666.AssemblyInfoInputs.cache
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Operacion Aprobar Proyecto\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\tl1-proyectofinal2024-yahel8666.AssemblyInfo.cs
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Operacion Aprobar Proyecto\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\tl1-proyectofinal2024-yahel8666.csproj.CoreCompileInputs.cache
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Operacion Aprobar Proyecto\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\tl1-proyectofinal2024-yahel8666.sourcelink.json
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Operacion Aprobar Proyecto\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\tl1-proyectofinal2024-yahel8666.dll
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Operacion Aprobar Proyecto\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\refint\tl1-proyectofinal2024-yahel8666.dll
+C:\Users\operador\Downloads\PROGRAMADOR UNIVERSITARIO\2° AÑO\Taller Lenguaje I\Operacion Aprobar Proyecto\tl1-proyectofinal2024-yahel8666\obj\Debug\net8.0\tl1-proyectofinal2024-yahel8666.pdb

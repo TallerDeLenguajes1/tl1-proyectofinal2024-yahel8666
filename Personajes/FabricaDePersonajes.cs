@@ -5,22 +5,19 @@ namespace miProyecto;
 public class fabricaPersonajes()
 {
     private static Random random = new Random();
-    // Método estático y asíncrono para crear un personaje aleatorio
     public static async Task<Personaje> CrearPersonajeAleatorio()
     {
         // Llamada a una API para obtener un usuario aleatorio
-        UsuarioAleatorio usuarioAleatorio = await MiApi.GetGeneraUsuario();
+        UsuarioAleatorio nuevoUsuario = await MiApi.GetGeneraUsuario();
+        string nombre = nuevoUsuario.first_name;
 
-        // Extraer el nombre del usuario aleatorio obtenido
-        string nombre = usuarioAleatorio.first_name;
-
-        TiposPersonajes tiposPersonajes = new TiposPersonajes();
-        string tipo = tiposPersonajes.obtenerTipoAleatorio();
+        TiposPersonajes tipos = new TiposPersonajes();
+        string tipo = tipos.obtenerTipoAleatorio();
 
         DateTime fechaNac = ObtenerFechaAleatoria();
         int edad = CalcularEdad(fechaNac);
 
-        // Crear un objeto DatosPersonaje con la información obtenida. 
+        // Crea un objeto DatosPersonaje con la información obtenida. 
         DatosPersonaje datos = new DatosPersonaje(nombre, tipo, fechaNac, edad);
 
         // Generar valores aleatorios para las características del personaje
@@ -35,6 +32,18 @@ public class fabricaPersonajes()
 
         Personaje nuevoPersonaje = new Personaje(datos, caracteristicas);
         return nuevoPersonaje;
+    }
+    private class TiposPersonajes
+    {
+        List<string> ListaDeTipos = new List<string> {
+        "Mago", "Elfo", "Enano", "Humano", "Raconeano", "Demonio", "Angel"
+        };
+
+        public string obtenerTipoAleatorio()
+        {
+            int i = random.Next(ListaDeTipos.Count);
+            return ListaDeTipos[i];
+        }
     }
     private static DateTime ObtenerFechaAleatoria()
     {

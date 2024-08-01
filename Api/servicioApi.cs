@@ -12,6 +12,7 @@ public class MiApi()
 
         var url = "https://random-data-api.com/api/v2/users?size=1";
 
+    
         HttpClient client = new HttpClient();
         HttpResponseMessage response = await client.GetAsync(url);
         response.EnsureSuccessStatusCode();

@@ -14,9 +14,11 @@ public class fabricaPersonajes()
     private static Random random = new Random();
     public async Task<Personaje> CrearPersonajeAleatorio()
     {
-        // Llamada a una API para obtener un usuario aleatorio
+        // Uso metodo para llamar a la API con Retry
         UsuarioAleatorio nuevoUsuario = await ObtenerUsuarioAleatorioConRetries();
         string nombre = nuevoUsuario.first_name;
+
+        //En caso de no conectarse con la api, faltaria obtener los nombres de un ENUM. 
 
         TiposPersonajes tipos = new TiposPersonajes();
         string tipo = tipos.obtenerTipoAleatorio();

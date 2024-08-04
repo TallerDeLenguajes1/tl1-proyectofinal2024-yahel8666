@@ -1,6 +1,7 @@
 namespace miProyecto;
 public class Torneo
 {
+    //Lo voy a ver planificar mejor después. 
     // public void inicioCombate(Personaje miPersonaje, List<Personaje> listadoEnemigos)
     // {
     //     if (listadoEnemigos == null || listadoEnemigos.Count < 3)

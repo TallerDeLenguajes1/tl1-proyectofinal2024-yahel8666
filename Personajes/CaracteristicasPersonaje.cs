@@ -15,7 +15,6 @@ public class CaracteristicasPersonaje
     public int Salud { get => salud; set => salud = value; }
     public int Destreza { get => destreza; set => destreza = value; }
 
-    //Constructor de caracteristicas que recibe parametros.
     public CaracteristicasPersonaje(int velocidad, int armadura, int fuerza , int nivel, int salud, int destreza )
     {
         this.velocidad = velocidad;
@@ -24,5 +23,6 @@ public class CaracteristicasPersonaje
         this.nivel = nivel;
         this.salud = salud; 
         this.destreza = destreza; 
+        //despues agregaré más. 
     }
 }

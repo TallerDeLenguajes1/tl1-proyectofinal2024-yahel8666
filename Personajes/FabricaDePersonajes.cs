@@ -1,14 +1,21 @@
+using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 using WebApiProyecto;
 namespace miProyecto;
 
 
 public class fabricaPersonajes()
 {
+    private static int maxRetries = 5;
+    private static int initialDelay = 1000;
     private static Random random = new Random();
-    public static async Task<Personaje> CrearPersonajeAleatorio()
+    public async Task<Personaje> CrearPersonajeAleatorio()
     {
         // Llamada a una API para obtener un usuario aleatorio
-        UsuarioAleatorio nuevoUsuario = await MiApi.GetGeneraUsuario();
+        UsuarioAleatorio nuevoUsuario = await ObtenerUsuarioAleatorioConRetries();
         string nombre = nuevoUsuario.first_name;
 
         TiposPersonajes tipos = new TiposPersonajes();
@@ -33,6 +40,32 @@ public class fabricaPersonajes()
         Personaje nuevoPersonaje = new Personaje(datos, caracteristicas);
         return nuevoPersonaje;
     }
+
+    private static async Task<UsuarioAleatorio> ObtenerUsuarioAleatorioConRetries()
+    {
+        int delay = initialDelay;
+
+        for (int retry = 0; retry < maxRetries; retry++)
+        {
+            try
+            {
+                return await MiApi.GetGeneraUsuario();
+            }
+            catch (HttpRequestException e) when (e.StatusCode == HttpStatusCode.TooManyRequests)
+            {
+                if (retry == maxRetries - 1)
+                    throw;
+
+                await Task.Delay(delay);
+                delay *= 2; // Retraso exponencial
+            }
+        }
+
+        throw new Exception("No se pudo obtener un usuario aleatorio después de varios intentos.");
+    }
+
+
+
     private class TiposPersonajes
     {
         List<string> ListaDeTipos = new List<string> {

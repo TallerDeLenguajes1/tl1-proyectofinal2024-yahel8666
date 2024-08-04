@@ -1,0 +1,162 @@
+[
+  {
+    "Caracteristicas": {
+      "Velocidad": 3,
+      "Armadura": 3,
+      "Fuerza": 4,
+      "Nivel": 7,
+      "Salud": 100,
+      "Destreza": 3
+    },
+    "Datos": {
+      "Nombre": "Teisha",
+      "Tipo": "Mago",
+      "FechaNac": "1762-12-08T00:00:00",
+      "Edad": 262
+    }
+  },
+  {
+    "Caracteristicas": {
+      "Velocidad": 3,
+      "Armadura": 10,
+      "Fuerza": 5,
+      "Nivel": 9,
+      "Salud": 100,
+      "Destreza": 3
+    },
+    "Datos": {
+      "Nombre": "Dovie",
+      "Tipo": "Elfo",
+      "FechaNac": "1702-11-26T00:00:00",
+      "Edad": 322
+    }
+  },
+  {
+    "Caracteristicas": {
+      "Velocidad": 6,
+      "Armadura": 4,
+      "Fuerza": 4,
+      "Nivel": 1,
+      "Salud": 100,
+      "Destreza": 3
+    },
+    "Datos": {
+      "Nombre": "Ron",
+      "Tipo": "Demonio",
+      "FechaNac": "1939-10-01T00:00:00",
+      "Edad": 85
+    }
+  },
+  {
+    "Caracteristicas": {
+      "Velocidad": 2,
+      "Armadura": 7,
+      "Fuerza": 8,
+      "Nivel": 6,
+      "Salud": 100,
+      "Destreza": 1
+    },
+    "Datos": {
+      "Nombre": "Lanny",
+      "Tipo": "Angel",
+      "FechaNac": "2015-03-09T00:00:00",
+      "Edad": 9
+    }
+  },
+  {
+    "Caracteristicas": {
+      "Velocidad": 10,
+      "Armadura": 2,
+      "Fuerza": 10,
+      "Nivel": 4,
+      "Salud": 100,
+      "Destreza": 3
+    },
+    "Datos": {
+      "Nombre": "Mendy",
+      "Tipo": "Angel",
+      "FechaNac": "1750-07-30T00:00:00",
+      "Edad": 274
+    }
+  },
+  {
+    "Caracteristicas": {
+      "Velocidad": 1,
+      "Armadura": 8,
+      "Fuerza": 8,
+      "Nivel": 8,
+      "Salud": 100,
+      "Destreza": 4
+    },
+    "Datos": {
+      "Nombre": "Arlen",
+      "Tipo": "Elfo",
+      "FechaNac": "1787-08-03T00:00:00",
+      "Edad": 237
+    }
+  },
+  {
+    "Caracteristicas": {
+      "Velocidad": 4,
+      "Armadura": 2,
+      "Fuerza": 3,
+      "Nivel": 8,
+      "Salud": 100,
+      "Destreza": 1
+    },
+    "Datos": {
+      "Nombre": "Zane",
+      "Tipo": "Enano",
+      "FechaNac": "1945-07-24T00:00:00",
+      "Edad": 79
+    }
+  },
+  {
+    "Caracteristicas": {
+      "Velocidad": 10,
+      "Armadura": 5,
+      "Fuerza": 4,
+      "Nivel": 9,
+      "Salud": 100,
+      "Destreza": 2
+    },
+    "Datos": {
+      "Nombre": "Rory",
+      "Tipo": "Enano",
+      "FechaNac": "1809-03-13T00:00:00",
+      "Edad": 215
+    }
+  },
+  {
+    "Caracteristicas": {
+      "Velocidad": 9,
+      "Armadura": 5,
+      "Fuerza": 10,
+      "Nivel": 1,
+      "Salud": 100,
+      "Destreza": 2
+    },
+    "Datos": {
+      "Nombre": "Michael",
+      "Tipo": "Elfo",
+      "FechaNac": "1706-08-18T00:00:00",
+      "Edad": 318
+    }
+  },
+  {
+    "Caracteristicas": {
+      "Velocidad": 4,
+      "Armadura": 7,
+      "Fuerza": 5,
+      "Nivel": 6,
+      "Salud": 100,
+      "Destreza": 5
+    },
+    "Datos": {
+      "Nombre": "Victoria",
+      "Tipo": "Angel",
+      "FechaNac": "1769-12-17T00:00:00",
+      "Edad": 255
+    }
+  }
+]

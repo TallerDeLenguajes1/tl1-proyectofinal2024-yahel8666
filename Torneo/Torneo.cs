@@ -1,78 +1,126 @@
 namespace miProyecto;
 public class Torneo
 {
-    //Lo voy a ver planificar mejor después. 
-    // public void inicioCombate(Personaje miPersonaje, List<Personaje> listadoEnemigos)
-    // {
-    //     if (listadoEnemigos == null || listadoEnemigos.Count < 3)
-    //     {
-    //         Visuales.CentrarTexto("No hay suficientes enemigos para el combate.");
-    //         return;
-    //     }
+    Visuales Visuales = new Visuales();
+    public void InicioTorneo(Personaje miPersonaje, List<Personaje> listadoEnemigos)
+    {
+        Personaje Ganador;
+        if (listadoEnemigos == null || listadoEnemigos.Count < 3)
+        {
+            Visuales.CentrarTexto("No hay suficientes enemigos para el combate.");
+            return;
+        }
 
-    //     Personaje ganadorPrimerRound = PrimerRound(miPersonaje, listadoEnemigos[0]);
-    //     if (ganadorPrimerRound == miPersonaje)
-    //     {
-    //         MejorarPersonaje(miPersonaje);
-    //         Personaje ganadorSegundoRound = SegundoRound(miPersonaje, listadoEnemigos[1]);
-    //         if (ganadorSegundoRound == miPersonaje)
-    //         {
-    //             MejorarPersonaje(miPersonaje);
-    //             Personaje ganadorFinal = FinalRound(miPersonaje, listadoEnemigos[2]);
-    //             if (ganadorFinal == miPersonaje)
-    //             {
-    //                 //se guarda miPersonaje en el historial de ganadores. 
-    //             }
-    //             else
-    //             {
-    //                 // se guarda el oponente en el historial de ganadores. 
-    //             }
-    //         }
-    //         else
-    //         {
-    //             // se guarda al enemigo como ganador en el historial.
-    //             // se sale de combate y se deja de jugar 
-    //         }
-    //     }
-    //     else
-    //     {
-    //         // se sale del combate y se deja de jugar
-    //         // se guarda al enemigo como ganador en el historial.
-    //     }
-    // }
+        Ganador = PrimerRound(miPersonaje, listadoEnemigos[0]);
+        if (Ganador == miPersonaje)
+        {
+            MejorarPersonaje(miPersonaje);
+            Ganador = SegundoRound(miPersonaje, listadoEnemigos[1]);
+            if (Ganador == miPersonaje)
+            {
+                MejorarPersonaje(miPersonaje);
+                Ganador = FinalRound(miPersonaje, listadoEnemigos[2]);
+                if (Ganador == miPersonaje)
+                {
+                    //se guarda miPersonaje en el historial de ganadores. 
+                }
+                else
+                {
+                    // se guarda el oponente en el historial de ganadores. 
+                }
+            }
+            else
+            {
+                // se guarda al enemigo como ganador en el historial.
+                // se sale de combate y se deja de jugar 
+            }
+        }
+        else
+        {
+            // se sale del combate y se deja de jugar
+            // se guarda al enemigo como ganador en el historial.
+        }
+    }
 
     private Personaje PrimerRound(Personaje miPersonaje, Personaje enemigo)
     {
-        Visuales.CentrarTexto("Primer Round: ");
+        Visuales.MensajePrimerRound();
+        Thread.Sleep(2000);
         Visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
+        Thread.Sleep(1000);
         Visuales.CentrarTexto("VS");
+        Thread.Sleep(1000);
         Visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
-        return RealizarCombate(miPersonaje, enemigo);
-        
+        Thread.Sleep(2000);
+        Personaje Ganador = RealizarCombate(miPersonaje, enemigo);
+        if (Ganador == miPersonaje)
+        {
+            Visuales.MensajeGanador();
+        }
+        else
+        {
+            Visuales.MensajePerdedor();
+            Thread.Sleep(2000);
+            Console.Clear();
+            Visuales.MensajeGameOver();
+        }
+        return Ganador;
     }
 
     private Personaje SegundoRound(Personaje miPersonaje, Personaje enemigo)
     {
-        Visuales.CentrarTexto("Segundo Round: ");
+        Visuales.MensajeSegundoRound();
+        Thread.Sleep(2000); 
         Visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
+        Thread.Sleep(1000);
         Visuales.CentrarTexto("VS");
+        Thread.Sleep(1000);
         Visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
-        return RealizarCombate(miPersonaje, enemigo);
+        Personaje Ganador = RealizarCombate(miPersonaje, enemigo);
+        if (Ganador == miPersonaje)
+        {
+            Visuales.MensajeGanador();
+        }
+        else
+        {
+            Visuales.MensajePerdedor();
+            Thread.Sleep(2000);
+            Console.Clear();
+            Visuales.MensajeGameOver();
+        }
+        return Ganador;
     }
 
     private Personaje FinalRound(Personaje miPersonaje, Personaje enemigo)
     {
-        Visuales.CentrarTexto("Final Round: ");
+        
+        Visuales.MensajeFinalRound();
+        Thread.Sleep(2000); 
         Visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
+        Thread.Sleep(1000);
         Visuales.CentrarTexto("VS");
+        Thread.Sleep(1000);
         Visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
-        return RealizarCombate(miPersonaje, enemigo);
+        Personaje Ganador = RealizarCombate(miPersonaje, enemigo);
+        if (Ganador == miPersonaje)
+        {
+            Visuales.MensajeGanador();
+        }
+        else
+        {
+            Visuales.MensajePerdedor();
+            Thread.Sleep(2000);
+            Console.Clear();
+            Thread.Sleep(1000);
+            Visuales.MensajeGameOver();
+        }
+        return Ganador;
     }
 
     //realiza el combate y devuelve el personaje ganador. 
     private Personaje RealizarCombate(Personaje miPersonaje, Personaje enemigo)
     {
-        Personaje Ganador=null; 
+        Personaje Ganador = null;
         //la salud es reiniciada en cada combate para ambos, para que estén en igualdad de condiciones. 
         miPersonaje.Caracteristicas.Salud = 100;
         enemigo.Caracteristicas.Salud = 100;
@@ -82,17 +130,17 @@ public class Torneo
             TurnoAtaque(miPersonaje, enemigo); //ataca y baja la salud del defensor
             if (enemigo.Caracteristicas.Salud <= 0)
             {
-                Ganador = miPersonaje;  
-                break; 
+                Ganador = miPersonaje;
+                break;
             }
             TurnoAtaque(enemigo, miPersonaje);
             if (miPersonaje.Caracteristicas.Salud <= 0)
             {
-                Ganador =  enemigo; 
-                break; 
+                Ganador = enemigo;
+                break;
             }
         }
-        return Ganador; 
+        return Ganador;
     }
     private void TurnoAtaque(Personaje atacante, Personaje defensor)
     {

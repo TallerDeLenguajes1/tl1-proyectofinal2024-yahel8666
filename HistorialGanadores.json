@@ -1,0 +1,20 @@
+[
+  {
+    "Nombre": "Dovie",
+    "Tipo": "Elfo",
+    "Salud": 41,
+    "Nivel": 10
+  },
+  {
+    "Nombre": "Arlen",
+    "Tipo": "Elfo",
+    "Salud": 10,
+    "Nivel": 8
+  },
+  {
+    "Nombre": "Victoria",
+    "Tipo": "Angel",
+    "Salud": 100,
+    "Nivel": 6
+  }
+]

@@ -5,6 +5,9 @@ public class Torneo
     public void InicioTorneo(Personaje miPersonaje, List<Personaje> listadoEnemigos)
     {
         Personaje Ganador;
+        string archivoGanadores = "HistorialGanadores.json";
+        var historial = new HistorialJson(); 
+
         if (listadoEnemigos == null || listadoEnemigos.Count < 3)
         {
             Visuales.CentrarTexto("No hay suficientes enemigos para el combate.");
@@ -12,38 +15,29 @@ public class Torneo
         }
 
         Ganador = PrimerRound(miPersonaje, listadoEnemigos[0]);
-        if (Ganador == miPersonaje)
-        {
+        if (Ganador == miPersonaje) {
             MejorarPersonaje(miPersonaje);
             Ganador = SegundoRound(miPersonaje, listadoEnemigos[1]);
-            if (Ganador == miPersonaje)
-            {
+            if (Ganador == miPersonaje) {
                 MejorarPersonaje(miPersonaje);
                 Ganador = FinalRound(miPersonaje, listadoEnemigos[2]);
-                if (Ganador == miPersonaje)
-                {
-                    //se guarda miPersonaje en el historial de ganadores. 
+                if (Ganador == miPersonaje) {
+                    historial.GuardarGanador(miPersonaje, archivoGanadores);
+                    //si gana la final, hacer honores correspondientes.  
+                } else {
+                    historial.GuardarGanador(listadoEnemigos[2], archivoGanadores); 
                 }
-                else
-                {
-                    // se guarda el oponente en el historial de ganadores. 
-                }
+            } else {
+                historial.GuardarGanador(listadoEnemigos[1], archivoGanadores); 
             }
-            else
-            {
-                // se guarda al enemigo como ganador en el historial.
-                // se sale de combate y se deja de jugar 
-            }
-        }
-        else
-        {
-            // se sale del combate y se deja de jugar
-            // se guarda al enemigo como ganador en el historial.
+        } else {
+            historial.GuardarGanador(listadoEnemigos[1], archivoGanadores); 
         }
     }
 
     private Personaje PrimerRound(Personaje miPersonaje, Personaje enemigo)
     {
+        Console.Clear(); 
         Visuales.MensajePrimerRound();
         Thread.Sleep(2000);
         Visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
@@ -56,6 +50,7 @@ public class Torneo
         if (Ganador == miPersonaje)
         {
             Visuales.MensajeGanador();
+            Thread.Sleep(2000);
         }
         else
         {
@@ -69,6 +64,7 @@ public class Torneo
 
     private Personaje SegundoRound(Personaje miPersonaje, Personaje enemigo)
     {
+        Console.Clear(); 
         Visuales.MensajeSegundoRound();
         Thread.Sleep(2000); 
         Visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
@@ -80,6 +76,7 @@ public class Torneo
         if (Ganador == miPersonaje)
         {
             Visuales.MensajeGanador();
+            Thread.Sleep(2000);
         }
         else
         {
@@ -93,7 +90,7 @@ public class Torneo
 
     private Personaje FinalRound(Personaje miPersonaje, Personaje enemigo)
     {
-        
+        Console.Clear(); 
         Visuales.MensajeFinalRound();
         Thread.Sleep(2000); 
         Visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
@@ -104,14 +101,14 @@ public class Torneo
         Personaje Ganador = RealizarCombate(miPersonaje, enemigo);
         if (Ganador == miPersonaje)
         {
-            Visuales.MensajeGanador();
+            Visuales.MensajeGanadorFinal();
+            Thread.Sleep(2000);
         }
         else
         {
             Visuales.MensajePerdedor();
             Thread.Sleep(2000);
             Console.Clear();
-            Thread.Sleep(1000);
             Visuales.MensajeGameOver();
         }
         return Ganador;
@@ -155,6 +152,7 @@ public class Torneo
         defensor.Caracteristicas.Salud -= dañoProvocado;
 
         Visuales.CentrarTexto($"{atacante.Datos.Nombre} ataca a {defensor.Datos.Nombre} y causa {dañoProvocado} de daño.");
+        Thread.Sleep(1000);
     }
 
     private void MejorarPersonaje(Personaje personaje)

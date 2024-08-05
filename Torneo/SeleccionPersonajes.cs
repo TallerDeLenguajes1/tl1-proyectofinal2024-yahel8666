@@ -21,7 +21,6 @@ namespace miProyecto
             {
                 string entradaUsuario = Console.ReadLine();
                 entradaValida = int.TryParse(entradaUsuario, out numeroSeleccionado) && numeroSeleccionado >= 1 && numeroSeleccionado <= personajes.Count;
-
                 if (!entradaValida)
                 {
                     Visuales.CentrarTexto("Entrada inválida. Por favor, ingrese un número entre 1 y " + personajes.Count + ":");
@@ -42,12 +41,8 @@ namespace miProyecto
                 return null;
             }
             Random random = new Random();
-            Console.Clear();
             for (int i = 0; i < 3; i++)
             {
-                if (personajes.Count == 0)
-                    break;
-
                 Personaje contrincante = personajes[random.Next(personajes.Count)];
                 listadoDeEnemigos.Add(contrincante);
                 personajes.Remove(contrincante);

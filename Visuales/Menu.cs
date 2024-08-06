@@ -2,19 +2,19 @@ using miProyecto;
 
 public class Menu
 {
-    Visuales Visuales = new Visuales();
+    Visuales visuales = new Visuales();
     public void MostrarMenuInicio()
     {
         Console.Clear(); // Limpiar la pantalla antes de mostrar el menú
-        Visuales.CentrarTexto("====================================");
-        Visuales.CentrarTexto("           MENU PRINCIPAL           ");
-        Visuales.CentrarTexto("====================================");
+        visuales.CentrarTexto("====================================");
+        visuales.CentrarTexto("           MENU PRINCIPAL           ");
+        visuales.CentrarTexto("====================================");
         Console.WriteLine();
-        MostrarOpcion("1", "Iniciar Juego");
-        MostrarOpcion("2", "Opciones");
+        MostrarOpcion("1", "Nueva Partida");
+        MostrarOpcion("2", "Ver Ganadores Historicos");
         MostrarOpcion("3", "Salir");
         Console.WriteLine();
-        Visuales.CentrarTexto("====================================");
+        visuales.CentrarTexto("====================================");
         Thread.Sleep(1000);
     }
 
@@ -33,14 +33,52 @@ public class Menu
     {
         int opcion;
         bool valida;
-        Visuales.CentrarTexto("Elija una opción (1-3): ");
+        visuales.CentrarTexto("Elija una opción (1-3): ");
         do
         {
             string entrada = Console.ReadLine();
             valida = int.TryParse(entrada, out opcion) && opcion >= 1 && opcion <= 3;
             if (!valida)
             {
-                Visuales.CentrarTexto("Opción inválida. Por favor, ingrese un número entre 1 y 3.");
+                visuales.CentrarTexto("Opción inválida. Por favor, ingrese un número entre 1 y 3.");
+            }
+        } while (!valida);
+        return opcion;
+    }
+
+    public void mostrarMenuAtaque()
+    {
+        visuales.CentrarTexto("====================================");
+        visuales.CentrarTexto("         ATAQUES ESPECIALES        ");
+        visuales.CentrarTexto("====================================");
+        visuales.CentrarTexto("");
+        visuales.CentrarTexto("  1- Ataque de agua       ");
+        visuales.CentrarTexto("");
+        visuales.CentrarTexto("  2- Ataque de fuego      ");
+        visuales.CentrarTexto("");
+        visuales.CentrarTexto("  3- Ataque de aire       ");
+        visuales.CentrarTexto("");
+        visuales.CentrarTexto("  4- Ataque de tierra     ");
+        visuales.CentrarTexto("");
+        visuales.CentrarTexto("  5- No realizar un ataque");
+        visuales.CentrarTexto("    especial              ");
+        visuales.CentrarTexto("");
+        visuales.CentrarTexto("====================================");
+        Console.WriteLine();
+
+    }
+    public int ObtenerOpcionAtaque()
+    {
+        int opcion;
+        bool valida;
+        visuales.CentrarTexto("Elija una opción (1-5): ");
+        do
+        {
+            string entrada = Console.ReadLine();
+            valida = int.TryParse(entrada, out opcion) && opcion >= 1 && opcion <= 5;
+            if (!valida)
+            {
+                visuales.CentrarTexto("Opción inválida. Por favor, ingrese un número entre 1 y 5.");
             }
         } while (!valida);
         return opcion;

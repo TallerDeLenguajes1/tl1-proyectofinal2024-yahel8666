@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
 namespace miProyecto;
 public class Visuales
 {
     private const int AnchoColumna = 30;
     private const int AnchoMarco = AnchoColumna + 18; // para márgenes
-
-    public static void CentrarTexto(string texto)
+    public void CentrarTexto(string texto)
     {
         int anchoPantalla = Console.WindowWidth;
         int espaciosPrevios = (anchoPantalla - texto.Length) / 2;
@@ -17,7 +14,7 @@ public class Visuales
     {
         if (personajes == null || personajes.Count == 0)
         {
-            Visuales.CentrarTexto("No hay personajes para mostrar.");
+            CentrarTexto("No hay personajes para mostrar.");
             return;
         }
         int indiceActual = 0;
@@ -42,51 +39,129 @@ public class Visuales
         string marcoSuperiorInferior = new string('=', AnchoMarco);
         string marcoMedio = new string('-', AnchoMarco);
 
-        Visuales.CentrarTexto(marcoSuperiorInferior);
-        Visuales.CentrarTexto($"| {"Personaje",-12} | {numero,-AnchoColumna} |");
-        Visuales.CentrarTexto(marcoMedio);
+        CentrarTexto(marcoSuperiorInferior);
+        CentrarTexto($"| {"Personaje",-12} | {numero,-AnchoColumna} |");
+        CentrarTexto(marcoMedio);
         ImprimirFila("Nombre", personaje.Datos.Nombre);
         ImprimirFila("Tipo", personaje.Datos.Tipo);
         ImprimirFila("Fecha Nac.", personaje.Datos.FechaNac.ToShortDateString());
         ImprimirFila("Edad", personaje.Datos.Edad.ToString());
-        Visuales.CentrarTexto(marcoMedio);
+        CentrarTexto(marcoMedio);
         ImprimirFila("Velocidad", personaje.Caracteristicas.Velocidad.ToString());
         ImprimirFila("Destreza", personaje.Caracteristicas.Destreza.ToString());
         ImprimirFila("Fuerza", personaje.Caracteristicas.Fuerza.ToString());
         ImprimirFila("Armadura", personaje.Caracteristicas.Armadura.ToString());
         ImprimirFila("Nivel", personaje.Caracteristicas.Nivel.ToString());
         ImprimirFila("Salud", personaje.Caracteristicas.Salud.ToString());
-        Visuales.CentrarTexto(marcoSuperiorInferior);
-        Visuales.CentrarTexto("Presiona Enter para ver el siguiente personaje...");
-        Visuales.CentrarTexto("Presiona cualquier otra tecla para omitir...");
+        CentrarTexto(marcoSuperiorInferior);
+        CentrarTexto("Presiona Enter para ver el siguiente personaje...");
+        CentrarTexto("Presiona cualquier otra tecla para omitir...");
     }
 
-    public static void ImprimirFila(string etiqueta, string valor)
+    private void ImprimirFila(string etiqueta, string valor)
     {
         // Ajusta el valor a un ancho fijo
         string valorAjustado = valor.Length > AnchoColumna ? valor.Substring(0, AnchoColumna - 3) + "..." : valor;
-        Visuales.CentrarTexto($"| {etiqueta,-12} | {valorAjustado,-30} |");
+        CentrarTexto($"| {etiqueta,-12} | {valorAjustado,-30} |");
     }
 
     public void MostrarUnPersonaje(Personaje personaje)
     {
+        CentrarTexto("Personaje elegido: ");
         string marcoSuperiorInferior = new string('=', AnchoMarco);
         string marcoMedio = new string('-', AnchoMarco);
-
-        Visuales.CentrarTexto(marcoSuperiorInferior);
-        Visuales.CentrarTexto(marcoMedio);
+        CentrarTexto(marcoSuperiorInferior);
+        CentrarTexto(marcoMedio);
         ImprimirFila("Nombre", personaje.Datos.Nombre);
         ImprimirFila("Tipo", personaje.Datos.Tipo);
         ImprimirFila("Fecha Nac.", personaje.Datos.FechaNac.ToShortDateString());
         ImprimirFila("Edad", personaje.Datos.Edad.ToString());
-        Visuales.CentrarTexto(marcoMedio);
+        CentrarTexto(marcoMedio);
         ImprimirFila("Velocidad", personaje.Caracteristicas.Velocidad.ToString());
         ImprimirFila("Destreza", personaje.Caracteristicas.Destreza.ToString());
         ImprimirFila("Fuerza", personaje.Caracteristicas.Fuerza.ToString());
         ImprimirFila("Armadura", personaje.Caracteristicas.Armadura.ToString());
         ImprimirFila("Nivel", personaje.Caracteristicas.Nivel.ToString());
         ImprimirFila("Salud", personaje.Caracteristicas.Salud.ToString());
-        Visuales.CentrarTexto(marcoSuperiorInferior);
+        CentrarTexto(marcoSuperiorInferior);
+        Thread.Sleep(2000);
+
+    }
+
+    public void MostrarHistorialGanadores(List<Ganador> listadoGanadores)
+    {
+        Console.Clear();
+        string lineaDecorativa = new string('=', Console.WindowWidth - 20);
+
+        CentrarTexto(lineaDecorativa);
+        CentrarTexto("HISTORIAL DE GANADORES");
+        CentrarTexto(lineaDecorativa);
+        if (listadoGanadores == null || listadoGanadores.Count == 0)
+        {
+            CentrarTexto("No hay personajes para mostrar.");
+            return;
+        }
+        else
+        {
+            for (int i = 0; i < listadoGanadores.Count; i++)
+            {
+                CentrarTexto($"Ganador {i + 1}: {listadoGanadores[i].Nombre} con {listadoGanadores[i].Salud} de salud final");
+            }
+        }
+        Thread.Sleep(5000);
+    }
+
+
+    private void CentrarASCII(string texto)
+    {
+       // Dividir el texto en líneas, manejando los diferentes saltos de línea posibles
+    string[] lineas = texto.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+    
+    // Obtener el ancho de la pantalla de la consola
+    int anchoPantalla = Console.WindowWidth;
+    
+    foreach (string linea in lineas)
+    {
+        // Calcular la cantidad de espacios en blanco necesarios para centrar la línea
+        int espaciosEnBlanco = (anchoPantalla - linea.Length) / 2;
+        
+        // Asegurarse de que la cantidad de espacios en blanco no sea negativa
+        espaciosEnBlanco = Math.Max(0, espaciosEnBlanco);
+        
+        // Imprimir la línea centrada
+        Console.WriteLine(new string(' ', espaciosEnBlanco) + linea);
+    }
+    }
+
+    public void Titulo()
+    {
+        string tituloJuego = @"
+             ███████████ █████ ██████   █████   █████████   █████                      
+            ░░███░░░░░░█░░███ ░░██████ ░░███   ███░░░░░███ ░░███                       
+             ░███   █ ░  ░███  ░███░███ ░███  ░███    ░███  ░███                       
+             ░███████    ░███  ░███░░███░███  ░███████████  ░███                       
+             ░███░░░█    ░███  ░███ ░░██████  ░███░░░░░███  ░███                       
+             ░███  ░     ░███  ░███  ░░█████  ░███    ░███  ░███      █                
+             █████       █████ █████  ░░█████ █████   █████ ███████████                
+            ░░░░░       ░░░░░ ░░░░░    ░░░░░ ░░░░░   ░░░░░ ░░░░░░░░░░░                 
+                                                                                       
+                                                                                       
+                                                                                       
+ ███████████ █████   █████████  █████   █████ ███████████ ██████████ ███████████       
+░░███░░░░░░█░░███   ███░░░░░███░░███   ░░███ ░█░░░███░░░█░░███░░░░░█░░███░░░░░███      
+ ░███   █ ░  ░███  ███     ░░░  ░███    ░███ ░   ░███  ░  ░███  █ ░  ░███    ░███      
+ ░███████    ░███ ░███          ░███████████     ░███     ░██████    ░██████████       
+ ░███░░░█    ░███ ░███    █████ ░███░░░░░███     ░███     ░███░░█    ░███░░░░░███      
+ ░███  ░     ░███ ░░███  ░░███  ░███    ░███     ░███     ░███ ░   █ ░███    ░███      
+ █████       █████ ░░█████████  █████   █████    █████    ██████████ █████   █████     
+░░░░░       ░░░░░   ░░░░░░░░░  ░░░░░   ░░░░░    ░░░░░    ░░░░░░░░░░ ░░░░░   ░░░░░      
+
+
+          
+        ";
+
+        CentrarASCII(tituloJuego);
+        Thread.Sleep(3000);
     }
 
     public void MensajeGanador()
@@ -104,16 +179,12 @@ public class Visuales
                                                                                            
                                                                                             ";
 
-
-                                                                                            
-
-        // Imprimir el texto en la consola
-        Console.WriteLine(textoGanador);
+        CentrarASCII(textoGanador);
     }
-                                                        
+
     public void MensajePerdedor()
     {
-        
+
         string textoPerdedor = @"
    
   ███████████  ██████████ ███████████   ██████████  █████  █████████  ███████████  ██████████
@@ -128,7 +199,7 @@ public class Visuales
                                                                                             
                                                                                                                                                        
                                                                                             ";
-        Console.WriteLine(textoPerdedor);
+        CentrarASCII(textoPerdedor);
     }
 
     public void MensajeGameOver()
@@ -156,9 +227,9 @@ public class Visuales
                                                       
                                                       
                                                       
-        "; 
+        ";
 
-        Console.WriteLine(textoGameOver); 
+        CentrarASCII(textoGameOver);
     }
 
     public void MensajeGanadorFinal()
@@ -187,9 +258,94 @@ public class Visuales
                                                                                            
                                                                                            
         ";
-        Console.WriteLine(textoGandorFinal); 
+        CentrarASCII(textoGandorFinal);
     }
 
+    public void MensajePrimerRound()
+    {
+        string textoPrimerRound = @"
+  ███████████ █████ ███████████    █████████  ███████████             
+░░███░░░░░░█░░███ ░░███░░░░░███  ███░░░░░███░█░░░███░░░ █             
+ ░███   █ ░  ░███  ░███    ░███ ░███    ░░░ ░   ░███  ░              
+ ░███████    ░███  ░██████████  ░░█████████     ░███                 
+ ░███░░░█    ░███  ░███░░░░░███  ░░░░░░░░███    ░███                 
+ ░███  ░     ░███  ░███    ░███  ███    ░███    ░███                 
+ █████       █████ █████   █████░░█████████     █████                
+░░░░░       ░░░░░ ░░░░░   ░░░░░  ░░░░░░░░░     ░░░░░                 
+                                                                     
+                                                                     
+                                                                     
+ ███████████      ███████    █████  █████ ██████   █████ ██████████  
+░░███░░░░░███   ███░░░░░███ ░░███  ░░███ ░░██████ ░░███ ░░███░░░░███ 
+ ░███    ░███  ███     ░░███ ░███   ░███  ░███░███ ░███  ░███   ░░███
+ ░██████████  ░███      ░███ ░███   ░███  ░███░░███░███  ░███    ░███
+ ░███░░░░░███ ░███      ░███ ░███   ░███  ░███ ░░██████  ░███    ░███
+ ░███    ░███ ░░███     ███  ░███   ░███  ░███  ░░█████  ░███    ███ 
+ █████   █████ ░░░███████░   ░░████████   █████  ░░█████ ██████████  
+░░░░░   ░░░░░    ░░░░░░░      ░░░░░░░░   ░░░░░    ░░░░░ ░░░░░░░░░░   
+                                                                     
+                                                                                                                          
+        ";
 
+        CentrarASCII(textoPrimerRound);
+    }
+
+    public void MensajeSegundoRound()
+    {
+        string textoSegundoRound = @"
+   █████████  ██████████   █████████     ███████    ██████   █████ ██████████        
+ ███░░░░░███░░███░░░░░█  ███░░░░░███  ███░░░░░███ ░░██████ ░░███ ░░███░░░░███       
+░███    ░░░  ░███  █ ░  ███     ░░░  ███     ░░███ ░███░███ ░███  ░███   ░░███      
+░░█████████  ░██████   ░███         ░███      ░███ ░███░░███░███  ░███    ░███      
+ ░░░░░░░░███ ░███░░█   ░███         ░███      ░███ ░███ ░░██████  ░███    ░███      
+ ███    ░███ ░███ ░   █░░███     ███░░███     ███  ░███  ░░█████  ░███    ███       
+░░█████████  ██████████ ░░█████████  ░░░███████░   █████  ░░█████ ██████████        
+ ░░░░░░░░░  ░░░░░░░░░░   ░░░░░░░░░     ░░░░░░░    ░░░░░    ░░░░░ ░░░░░░░░░░         
+                                                                                    
+                                                                                    
+                                                                                    
+ ███████████      ███████    █████  █████ ██████   █████ ██████████                 
+░░███░░░░░███   ███░░░░░███ ░░███  ░░███ ░░██████ ░░███ ░░███░░░░███                
+ ░███    ░███  ███     ░░███ ░███   ░███  ░███░███ ░███  ░███   ░░███               
+ ░██████████  ░███      ░███ ░███   ░███  ░███░░███░███  ░███    ░███               
+ ░███░░░░░███ ░███      ░███ ░███   ░███  ░███ ░░██████  ░███    ░███               
+ ░███    ░███ ░░███     ███  ░███   ░███  ░███  ░░█████  ░███    ███                
+ █████   █████ ░░░███████░   ░░████████   █████  ░░█████ ██████████                 
+░░░░░   ░░░░░    ░░░░░░░      ░░░░░░░░   ░░░░░    ░░░░░ ░░░░░░░░░░                  
+                                                                                    
+                                                                           
+        ";
+
+        CentrarASCII(textoSegundoRound);
+    }
+
+    public void MensajeFinalRound()
+    {
+        string textoFinalRound = @"
+ ███████████ █████ ██████   █████  █████████   █████                
+░░███░░░░░░█░░███ ░░██████ ░░███   ███░░░░░███ ░░███                 
+ ░███   █ ░  ░███  ░███░███ ░███  ░███    ░███  ░███                 
+ ░███████    ░███  ░███░░███░███  ░███████████  ░███                 
+ ░███░░░█    ░███  ░███ ░░██████  ░███░░░░░███  ░███                 
+ ░███  ░     ░███  ░███  ░░█████  ░███    ░███  ░███      █          
+ █████       █████ █████  ░░█████ █████   █████ ███████████          
+░░░░░       ░░░░░ ░░░░░    ░░░░░ ░░░░░   ░░░░░ ░░░░░░░░░░░           
+                                                                     
+                                                                     
+                                                                     
+ ███████████      ███████    █████  █████ ██████   █████ ██████████  
+░░███░░░░░███   ███░░░░░███ ░░███  ░░███ ░░██████ ░░███ ░░███░░░░███ 
+ ░███    ░███  ███     ░░███ ░███   ░███  ░███░███ ░███  ░███   ░░███
+ ░██████████  ░███      ░███ ░███   ░███  ░███░░███░███  ░███    ░███
+ ░███░░░░░███ ░███      ░███ ░███   ░███  ░███ ░░██████  ░███    ░███
+ ░███    ░███ ░░███     ███  ░███   ░███  ░███  ░░█████  ░███    ███ 
+ █████   █████ ░░░███████░   ░░████████   █████  ░░█████ ██████████  
+░░░░░   ░░░░░    ░░░░░░░      ░░░░░░░░   ░░░░░    ░░░░░ ░░░░░░░░░░   
+                                                                     
+                                                                       
+        ";
+
+        CentrarASCII(textoFinalRound);
+    }
 
 }

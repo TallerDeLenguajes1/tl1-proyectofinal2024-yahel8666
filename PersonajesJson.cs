@@ -1,33 +1,40 @@
 namespace miProyecto;
-using System.Collections.Generic;
 using System.IO;
-using System.Text.Json;
+using System.Text.Json; 
+
 
 public class PersonajesJson
 {
     public void GuardarPersonajes(List<Personaje> personajes, string nombreArchivo)
     {
-        var opciones = new JsonSerializerOptions
+        var opcion = new JsonSerializerOptions
         {
             WriteIndented = true //escribe Identado
         };
-        string json = JsonSerializer.Serialize(personajes, opciones);
+        string json = JsonSerializer.Serialize(personajes, opcion);
         File.WriteAllText(nombreArchivo, json);
     }
 
-    public List<Personaje> LeerPersonajes(string nombreArchivo)
+  public List<Personaje> LeerPersonajes(string nombreArchivo)
+{
+    List<Personaje> listadoPersonajes = new List<Personaje>();
+    if (Existe(nombreArchivo))
     {
-        if (Existe(nombreArchivo))
+        string jsonString = File.ReadAllText(nombreArchivo);
+        var personajesDeserializados = JsonSerializer.Deserialize<List<Personaje>>(jsonString);
+        if (personajesDeserializados != null)
         {
-            string jsonString = File.ReadAllText(nombreArchivo);
-            var personajes = JsonSerializer.Deserialize<List<Personaje>>(jsonString);
-            if (personajes != null)
-            {
-                return personajes;
-            }
+            listadoPersonajes = personajesDeserializados;
         }
-        return new List<Personaje>();
     }
+    else
+    {
+        Console.WriteLine("No existe el archivo de personajes.");
+    }
+    return listadoPersonajes;
+}
+
+
 
     public bool Existe(string nombreArchivo)
     {
@@ -40,5 +47,5 @@ public class PersonajesJson
         {
             return false;
         }
-    }
+    }    
 }

@@ -1,6 +1,6 @@
 namespace miProyecto;
 using System.IO;
-using System.Text.Json; 
+using System.Text.Json;
 
 
 public class PersonajesJson
@@ -15,24 +15,24 @@ public class PersonajesJson
         File.WriteAllText(nombreArchivo, json);
     }
 
-  public List<Personaje> LeerPersonajes(string nombreArchivo)
-{
-    List<Personaje> listadoPersonajes = new List<Personaje>();
-    if (Existe(nombreArchivo))
+    public List<Personaje> LeerPersonajes(string nombreArchivo)
     {
-        string jsonString = File.ReadAllText(nombreArchivo);
-        var personajesDeserializados = JsonSerializer.Deserialize<List<Personaje>>(jsonString);
-        if (personajesDeserializados != null)
+        List<Personaje> listadoPersonajes = new List<Personaje>();
+        if (Existe(nombreArchivo))
         {
-            listadoPersonajes = personajesDeserializados;
+            string jsonString = File.ReadAllText(nombreArchivo);
+            var personajesDeserializados = JsonSerializer.Deserialize<List<Personaje>>(jsonString);
+            if (personajesDeserializados != null)
+            {
+                listadoPersonajes = personajesDeserializados;
+            }
         }
+        else
+        {
+            Console.WriteLine("No existe el archivo de personajes.");
+        }
+        return listadoPersonajes;
     }
-    else
-    {
-        Console.WriteLine("No existe el archivo de personajes.");
-    }
-    return listadoPersonajes;
-}
 
 
 
@@ -47,5 +47,5 @@ public class PersonajesJson
         {
             return false;
         }
-    }    
+    }
 }

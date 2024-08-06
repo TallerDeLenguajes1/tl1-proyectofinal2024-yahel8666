@@ -12,9 +12,33 @@
     "Nivel": 8
   },
   {
+    "Nombre": "Mendy",
+    "Tipo": "Angel",
+    "Salud": 11,
+    "Nivel": 4
+  },
+  {
     "Nombre": "Victoria",
     "Tipo": "Angel",
-    "Salud": 100,
+    "Salud": 35,
     "Nivel": 6
+  },
+  {
+    "Nombre": "Arlen",
+    "Tipo": "Elfo",
+    "Salud": 26,
+    "Nivel": 8
+  },
+  {
+    "Nombre": "Mendy",
+    "Tipo": "Angel",
+    "Salud": 25,
+    "Nivel": 4
+  },
+  {
+    "Nombre": "Dovie",
+    "Tipo": "Elfo",
+    "Salud": 66,
+    "Nivel": 10
   }
 ]

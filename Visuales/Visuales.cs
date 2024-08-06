@@ -19,6 +19,9 @@ public class Visuales
         }
         int indiceActual = 0;
         ConsoleKeyInfo teclaPresionada;
+        Console.Clear();
+        CentrarTexto("A continuacion, te mostramos los personajes disponibles para elegir: ");
+        Thread.Sleep(2000);
         do
         {
             Console.Clear();
@@ -84,7 +87,7 @@ public class Visuales
         ImprimirFila("Nivel", personaje.Caracteristicas.Nivel.ToString());
         ImprimirFila("Salud", personaje.Caracteristicas.Salud.ToString());
         CentrarTexto(marcoSuperiorInferior);
-        Thread.Sleep(2000);
+        Thread.Sleep(3000);
 
     }
 
@@ -159,7 +162,7 @@ public class Visuales
 
           
         ";
-
+        Console.Clear();
         CentrarASCII(tituloJuego);
         Thread.Sleep(3000);
     }

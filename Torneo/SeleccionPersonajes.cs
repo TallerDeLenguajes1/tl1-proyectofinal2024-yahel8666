@@ -39,6 +39,9 @@ namespace miProyecto
                 visuales.CentrarTexto("No hay personajes para seleccionar.");
                 return null;
             }
+            Console.Clear();
+            visuales.CentrarTexto("Ahora vamos a elegir a tus enemigos...");
+            Thread.Sleep(3000);
             Random random = new Random();
             for (int i = 0; i < 3; i++)
             {
@@ -46,6 +49,8 @@ namespace miProyecto
                 listadoDeEnemigos.Add(contrincante);
                 personajes.Remove(contrincante);
             }
+            visuales.CentrarTexto("Todo listo! Que la fuerza te acompañe");
+            Thread.Sleep(2000);
             return listadoDeEnemigos;
         }
 

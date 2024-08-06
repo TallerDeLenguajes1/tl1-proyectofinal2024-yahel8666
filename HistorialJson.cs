@@ -17,29 +17,28 @@ public class HistorialJson
         {
             listadoGanadores = LeerGanadores(nombreArchivo);
         }
-
         listadoGanadores.Add(nuevoGanador);
         var opcion = new JsonSerializerOptions
         {
             WriteIndented = true
         };
-
         string jsonString = JsonSerializer.Serialize(listadoGanadores, opcion);
         File.WriteAllText(nombreArchivo, jsonString);
     }
 
     public List<Ganador> LeerGanadores(string archivoGanadores)
     {
+        List<Ganador> listadoGanadores = new List<Ganador>();
         if (Existe(archivoGanadores))
         {
             string jsonString = File.ReadAllText(archivoGanadores);
             var ganadores = JsonSerializer.Deserialize<List<Ganador>>(jsonString);
             if (ganadores != null)
             {
-                return ganadores;
+                listadoGanadores = ganadores;
             }
         }
-        return new List<Ganador>();
+        return listadoGanadores;
     }
 
     public bool Existe(string nombreArchivo)

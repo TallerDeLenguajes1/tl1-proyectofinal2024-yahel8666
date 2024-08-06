@@ -1,19 +1,25 @@
 ﻿using miProyecto;
 using WebApiProyecto;
 
-//texto.Logo
-//texto.Introduccion
-//muestro menú con opciones. 
-
-
+//instancias de clases: 
 var personajesJson = new PersonajesJson();
 var fabrica = new fabricaPersonajes();
-var Visuales = new Visuales();
+var seleccionPersonaje = new SeleccionPersonaje();
+var visuales = new Visuales();  
+var nuevoTorneo = new Torneo();
+var menu = new Menu(); 
+
 List<Personaje> listadoDePersonajes;
+List<Personaje> ListadoDeEnemigos;
+Personaje personajeSeleccionado; 
+
 string archivoJson = "archivoPersonajes.json";
 
-//asumo primera opcion - Nueva Partida
-//creo o obtengo los personajes 
+menu.MostrarMenuInicio();
+int opcionMenu = menu.ObtenerOpcion(); //lee una entrada y la valida.
+
+//falta desarrollar switch y poner todo dentro de una clase juego. 
+
 if (!personajesJson.Existe(archivoJson))
 {
     listadoDePersonajes = new List<Personaje>();
@@ -28,24 +34,9 @@ else
     listadoDePersonajes = personajesJson.LeerPersonajes(archivoJson);
 }
 
-//muestro los personajes creados/obtenidos 
-Visuales.MostrarListaDePersonajes(listadoDePersonajes, 10);
-
-//El usuario selecciona su personaje, este se elimina de la lista. 
-SeleccionPersonaje seleccionPersonaje = new SeleccionPersonaje();
-Personaje personajeSeleccionado = seleccionPersonaje.elegirMiPersonaje(listadoDePersonajes);
-Visuales.CentrarTexto("Personaje elegido: ");
-Visuales.MostrarUnPersonaje(personajeSeleccionado);
-
-//Se eligen 3 personajes aleatorios que serán los enemigos. Cada vez que se elije uno, se elimna de la lista
-List<Personaje> ListadoDeEnemigos = seleccionPersonaje.ObtenerEnemigos(listadoDePersonajes);
-
-//vamos a la logica del combate... 
-Torneo nuevoTorneo = new Torneo(); 
-// nuevoTorneo.inicioCombate(personajeSeleccionado, ListadoDeEnemigos); 
-
-
-
-
-
+visuales.MostrarListaDePersonajes(listadoDePersonajes, 10); 
+personajeSeleccionado = seleccionPersonaje.elegirMiPersonaje(listadoDePersonajes);
+visuales.MostrarUnPersonaje(personajeSeleccionado); 
+ListadoDeEnemigos = seleccionPersonaje.ObtenerEnemigos(listadoDePersonajes);
+nuevoTorneo.InicioTorneo(personajeSeleccionado, ListadoDeEnemigos); 
 

@@ -1,7 +1,8 @@
 namespace miProyecto;
 public class Torneo
 {
-    Visuales Visuales = new Visuales();
+    Visuales visuales = new Visuales();
+    Menu menu  = new Menu();
     public void InicioTorneo(Personaje miPersonaje, List<Personaje> listadoEnemigos)
     {
         Personaje Ganador;
@@ -10,10 +11,11 @@ public class Torneo
 
         if (listadoEnemigos == null || listadoEnemigos.Count < 3)
         {
-            Visuales.CentrarTexto("No hay suficientes enemigos para el combate.");
+            visuales.CentrarTexto("No hay suficientes enemigos para el combate.");
             return;
         }
 
+        //Explicacion de la modalidad del juego. 
         Ganador = PrimerRound(miPersonaje, listadoEnemigos[0]);
         if (Ganador == miPersonaje) {
             MejorarPersonaje(miPersonaje);
@@ -22,8 +24,7 @@ public class Torneo
                 MejorarPersonaje(miPersonaje);
                 Ganador = FinalRound(miPersonaje, listadoEnemigos[2]);
                 if (Ganador == miPersonaje) {
-                    historial.GuardarGanador(miPersonaje, archivoGanadores);
-                    //si gana la final, hacer honores correspondientes.  
+                    historial.GuardarGanador(miPersonaje, archivoGanadores); 
                 } else {
                     historial.GuardarGanador(listadoEnemigos[2], archivoGanadores); 
                 }
@@ -31,33 +32,34 @@ public class Torneo
                 historial.GuardarGanador(listadoEnemigos[1], archivoGanadores); 
             }
         } else {
-            historial.GuardarGanador(listadoEnemigos[1], archivoGanadores); 
+            historial.GuardarGanador(listadoEnemigos[0], archivoGanadores); 
         }
     }
 
     private Personaje PrimerRound(Personaje miPersonaje, Personaje enemigo)
     {
         Console.Clear(); 
-        Visuales.MensajePrimerRound();
+        visuales.MensajePrimerRound();
         Thread.Sleep(2000);
-        Visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
+        visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
         Thread.Sleep(1000);
-        Visuales.CentrarTexto("VS");
+        visuales.CentrarTexto("VS");
         Thread.Sleep(1000);
-        Visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
+        visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
         Thread.Sleep(2000);
         Personaje Ganador = RealizarCombate(miPersonaje, enemigo);
         if (Ganador == miPersonaje)
         {
-            Visuales.MensajeGanador();
-            Thread.Sleep(2000);
+            visuales.MensajeGanador();
+            Thread.Sleep(3000);
         }
         else
         {
-            Visuales.MensajePerdedor();
+            visuales.MensajePerdedor();
             Thread.Sleep(2000);
             Console.Clear();
-            Visuales.MensajeGameOver();
+            visuales.MensajeGameOver();
+            Thread.Sleep(3000);
         }
         return Ganador;
     }
@@ -65,25 +67,27 @@ public class Torneo
     private Personaje SegundoRound(Personaje miPersonaje, Personaje enemigo)
     {
         Console.Clear(); 
-        Visuales.MensajeSegundoRound();
+        visuales.MensajeSegundoRound();
         Thread.Sleep(2000); 
-        Visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
+        visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
         Thread.Sleep(1000);
-        Visuales.CentrarTexto("VS");
+        visuales.CentrarTexto("VS");
         Thread.Sleep(1000);
-        Visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
+        visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
+        Thread.Sleep(2000);
         Personaje Ganador = RealizarCombate(miPersonaje, enemigo);
         if (Ganador == miPersonaje)
         {
-            Visuales.MensajeGanador();
+            visuales.MensajeGanador();
             Thread.Sleep(2000);
         }
         else
         {
-            Visuales.MensajePerdedor();
+            visuales.MensajePerdedor();
             Thread.Sleep(2000);
             Console.Clear();
-            Visuales.MensajeGameOver();
+            visuales.MensajeGameOver();
+            Thread.Sleep(3000);
         }
         return Ganador;
     }
@@ -91,25 +95,27 @@ public class Torneo
     private Personaje FinalRound(Personaje miPersonaje, Personaje enemigo)
     {
         Console.Clear(); 
-        Visuales.MensajeFinalRound();
+        visuales.MensajeFinalRound();
         Thread.Sleep(2000); 
-        Visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
+        visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
         Thread.Sleep(1000);
-        Visuales.CentrarTexto("VS");
+        visuales.CentrarTexto("VS");
         Thread.Sleep(1000);
-        Visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
+        visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
+        Thread.Sleep(2000);
         Personaje Ganador = RealizarCombate(miPersonaje, enemigo);
         if (Ganador == miPersonaje)
         {
-            Visuales.MensajeGanadorFinal();
-            Thread.Sleep(2000);
+            visuales.MensajeGanadorFinal();
+            Thread.Sleep(3000);
         }
         else
         {
-            Visuales.MensajePerdedor();
+            visuales.MensajePerdedor();
             Thread.Sleep(2000);
             Console.Clear();
-            Visuales.MensajeGameOver();
+            visuales.MensajeGameOver();
+            Thread.Sleep(3000);
         }
         return Ganador;
     }
@@ -121,15 +127,27 @@ public class Torneo
         //la salud es reiniciada en cada combate para ambos, para que estén en igualdad de condiciones. 
         miPersonaje.Caracteristicas.Salud = 100;
         enemigo.Caracteristicas.Salud = 100;
-
+        int medidor=0;
         while (miPersonaje.Caracteristicas.Salud > 0 && enemigo.Caracteristicas.Salud > 0)
         {
-            TurnoAtaque(miPersonaje, enemigo); //ataca y baja la salud del defensor
-            if (enemigo.Caracteristicas.Salud <= 0)
+            medidor++; 
+            if (medidor%4==0) //cada 5 turnos, se le da la opcion de elegir un ataque especial.
             {
-                Ganador = miPersonaje;
-                break;
+                miAtaqueEspecial(miPersonaje, enemigo);
+                if (enemigo.Caracteristicas.Salud <= 0)
+                {
+                    Ganador = miPersonaje;
+                    break;
+                }
+            } else {    
+                TurnoAtaque(miPersonaje, enemigo); //ataca y baja la salud del defensor
+                if (enemigo.Caracteristicas.Salud <= 0)
+                {
+                    Ganador = miPersonaje;
+                    break;
+                }
             }
+            //ataque enemigo. 
             TurnoAtaque(enemigo, miPersonaje);
             if (miPersonaje.Caracteristicas.Salud <= 0)
             {
@@ -148,10 +166,10 @@ public class Torneo
         int ataque = atacante.Caracteristicas.Destreza * atacante.Caracteristicas.Fuerza * atacante.Caracteristicas.Nivel;
         int defensa = defensor.Caracteristicas.Armadura * defensor.Caracteristicas.Velocidad;
         int dañoProvocado = ((ataque * efectividad) - defensa) / constanteAjuste;
-        dañoProvocado = Math.Max(0, dañoProvocado); // El daño no puede ser negativo.
+        dañoProvocado = Math.Max(0, dañoProvocado); 
         defensor.Caracteristicas.Salud -= dañoProvocado;
 
-        Visuales.CentrarTexto($"{atacante.Datos.Nombre} ataca a {defensor.Datos.Nombre} y causa {dañoProvocado} de daño.");
+        visuales.CentrarTexto($"{atacante.Datos.Nombre} ataca a {defensor.Datos.Nombre} y causa {dañoProvocado} de daño.");
         Thread.Sleep(1000);
     }
 
@@ -163,27 +181,67 @@ public class Torneo
         {
             case 1:
                 personaje.Caracteristicas.Armadura += 1;
-                Visuales.CentrarTexto($"{personaje.Datos.Nombre} ha mejorado su Armadura!");
+                visuales.CentrarTexto($"{personaje.Datos.Nombre} ha mejorado su Armadura!");
+                Thread.Sleep(2000);
                 break;
             case 2:
                 personaje.Caracteristicas.Fuerza += 1;
-                Visuales.CentrarTexto($"{personaje.Datos.Nombre} ha mejorado su Fuerza!");
+                visuales.CentrarTexto($"{personaje.Datos.Nombre} ha mejorado su Fuerza!");
+                Thread.Sleep(2000);
                 break;
             case 3:
                 personaje.Caracteristicas.Destreza += 1;
-                Visuales.CentrarTexto($"{personaje.Datos.Nombre} ha mejorado su Destreza!");
+                visuales.CentrarTexto($"{personaje.Datos.Nombre} ha mejorado su Destreza!");
+                Thread.Sleep(2000);
                 break;
             case 4:
                 personaje.Caracteristicas.Velocidad += 1;
-                Visuales.CentrarTexto($"{personaje.Datos.Nombre} ha mejorado su Velocidad!");
+                visuales.CentrarTexto($"{personaje.Datos.Nombre} ha mejorado su Velocidad!");
+                Thread.Sleep(2000);
                 break;
             case 5:
                 personaje.Caracteristicas.Nivel += 1;
-                Visuales.CentrarTexto($"{personaje.Datos.Nombre} ha subido de Nivel!");
+                visuales.CentrarTexto($"{personaje.Datos.Nombre} ha subido de Nivel!");
+                Thread.Sleep(2000);
                 break;
             default:
-                Visuales.CentrarTexto("No hay mejora.");
+                visuales.CentrarTexto("No hay mejora.");
+                Thread.Sleep(2000);
                 break;
         }
+    }
+
+    private void miAtaqueEspecial(Personaje atacante, Personaje defensor)
+    {
+        int opcionAtaque;
+        menu.mostrarMenuAtaque();
+        opcionAtaque = menu.ObtenerOpcionAtaque();
+        switch (opcionAtaque)
+        {
+            case 1: 
+            visuales.CentrarTexto($"{atacante.Datos.Nombre} realiza un ataque de agua");
+            atacante.Caracteristicas.Fuerza +=3; 
+            atacante.Caracteristicas.Armadura-=2;
+            break;
+            case 2: 
+            visuales.CentrarTexto($"{atacante.Datos.Nombre} realiza un ataque de fuego");
+            atacante.Caracteristicas.Destreza +=2; 
+            atacante.Caracteristicas.Velocidad-=1;
+            break;
+            case 3: 
+            visuales.CentrarTexto($"{atacante.Datos.Nombre} realiza un ataque de aire");
+            atacante.Caracteristicas.Nivel +=1; 
+            atacante.Caracteristicas.Armadura-=3;
+            break;
+            case 4: 
+            visuales.CentrarTexto($"{atacante.Datos.Nombre} realiza un ataque de tierra");
+            atacante.Caracteristicas.Fuerza +=3; 
+            atacante.Caracteristicas.Velocidad-=2;
+            break;
+            case 5: 
+            visuales.CentrarTexto($"{atacante.Datos.Nombre} decide no realizar un ataque especial");
+            break;
+        }
+        TurnoAtaque(atacante, defensor);
     }
 }

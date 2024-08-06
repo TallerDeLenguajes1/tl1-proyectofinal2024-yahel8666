@@ -1,20 +1,19 @@
-using System;
-using System.Collections.Generic;
-
 namespace miProyecto
 {
+    
     public class SeleccionPersonaje
     {
+        Visuales visuales = new Visuales();
         public Personaje elegirMiPersonaje(List<Personaje> personajes)
         {
             if (personajes == null || personajes.Count == 0)
             {
-                Visuales.CentrarTexto("No hay personajes para seleccionar.");
+                visuales.CentrarTexto("No hay personajes para seleccionar.");
                 return null;
             }
 
             Console.Clear();
-            Visuales.CentrarTexto("Seleccione el número del personaje que desea elegir (1 a " + personajes.Count + "):");
+            visuales.CentrarTexto("Seleccione el número del personaje que desea elegir (1 a " + personajes.Count + "):");
             int numeroSeleccionado;
             bool entradaValida;
             do
@@ -23,7 +22,7 @@ namespace miProyecto
                 entradaValida = int.TryParse(entradaUsuario, out numeroSeleccionado) && numeroSeleccionado >= 1 && numeroSeleccionado <= personajes.Count;
                 if (!entradaValida)
                 {
-                    Visuales.CentrarTexto("Entrada inválida. Por favor, ingrese un número entre 1 y " + personajes.Count + ":");
+                    visuales.CentrarTexto("Entrada inválida. Por favor, ingrese un número entre 1 y " + personajes.Count + ":");
                 }
             } while (!entradaValida);
             Personaje personajeSeleccionado = personajes[numeroSeleccionado - 1];
@@ -37,7 +36,7 @@ namespace miProyecto
 
             if (personajes == null || personajes.Count == 0)
             {
-                Visuales.CentrarTexto("No hay personajes para seleccionar.");
+                visuales.CentrarTexto("No hay personajes para seleccionar.");
                 return null;
             }
             Random random = new Random();
@@ -49,5 +48,6 @@ namespace miProyecto
             }
             return listadoDeEnemigos;
         }
+
     }
 }

@@ -1,5 +1,5 @@
 ﻿using miProyecto;
-// using WebApiProyecto;
+using WebApiProyecto;
 
 //instancias de clases: 
 var personajesJson = new PersonajesJson();
@@ -18,31 +18,38 @@ Personaje personajeSeleccionado;
 string archivoJson = "archivoPersonajes.json";
 string archivoGanadores = "HistorialGanadores.json";
 
-visuales.Titulo();
+// visuales.Titulo();
 // texto.MensajePresentacion();
 int opcionMenu;
 do
 {
     menu.MostrarMenuInicio();
-    opcionMenu = menu.ObtenerOpcion(); 
+    opcionMenu = menu.ObtenerOpcion(3);
     switch (opcionMenu)
     {
         case 1:
-            if (!personajesJson.Existe(archivoJson)) {
+            if (!personajesJson.Existe(archivoJson))
+            {
                 listadoDePersonajes = new List<Personaje>();
                 for (int i = 0; i < 10; i++)
                 {
+                    /*aclaracion: debido al delay que tiene el metodo para obtener un 
+                    usuario de la API, crear 10 personajes aletoriamente conectandose a 
+                    la api toma unos segundos, pero funciona. */
                     listadoDePersonajes.Add(await fabrica.CrearPersonajeAleatorio());
                 }
                 personajesJson.GuardarPersonajes(listadoDePersonajes, archivoJson);
-            } else {
+            }
+            else
+            {
                 listadoDePersonajes = personajesJson.LeerPersonajes(archivoJson);
             }
             visuales.MostrarListaDePersonajes(listadoDePersonajes, 10);
             personajeSeleccionado = seleccionPersonaje.elegirMiPersonaje(listadoDePersonajes);
             visuales.MostrarUnPersonaje(personajeSeleccionado);
+
             ListadoDeEnemigos = seleccionPersonaje.ObtenerEnemigos(listadoDePersonajes);
-            nuevoTorneo.InicioTorneo(personajeSeleccionado, ListadoDeEnemigos);
+            await nuevoTorneo.InicioTorneo(personajeSeleccionado, ListadoDeEnemigos);
             break;
         case 2:
             listadoGanadores = historial.LeerGanadores(archivoGanadores);
@@ -52,7 +59,7 @@ do
             texto.MensajeDespedida();
             break;
     }
-} while (opcionMenu!=3);
+} while (opcionMenu != 3);
 
 
 

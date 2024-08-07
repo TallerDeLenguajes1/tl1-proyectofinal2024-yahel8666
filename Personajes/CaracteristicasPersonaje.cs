@@ -23,6 +23,5 @@ public class CaracteristicasPersonaje
         this.nivel = nivel;
         this.salud = salud; 
         this.destreza = destreza; 
-        //despues agregaré más. 
     }
 }

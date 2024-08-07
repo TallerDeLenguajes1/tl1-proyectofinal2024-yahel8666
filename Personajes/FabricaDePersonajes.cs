@@ -14,11 +14,19 @@ public class fabricaPersonajes()
     private static Random random = new Random();
     public async Task<Personaje> CrearPersonajeAleatorio()
     {
-        // Uso metodo para llamar a la API con Retry
-        UsuarioAleatorio nuevoUsuario = await ObtenerUsuarioAleatorioConRetries();
-        string nombre = nuevoUsuario.first_name;
+        //llamo a la api con espera  
+        UsuarioAleatorio usuarioApi = await ObtenerUsuarioAleatorioConRetries();
 
-        //En caso de no conectarse con la api, faltaria obtener los nombres de un ENUM. 
+        //control por si falla la api
+        string nombre;
+        if (usuarioApi== null)
+        {
+            nombre = ObtenerNombreAleatorio();
+        }
+        else
+        {
+            nombre = usuarioApi.first_name;
+        }
 
         TiposPersonajes tipos = new TiposPersonajes();
         string tipo = tipos.obtenerTipoAleatorio();
@@ -26,47 +34,113 @@ public class fabricaPersonajes()
         DateTime fechaNac = ObtenerFechaAleatoria();
         int edad = CalcularEdad(fechaNac);
 
-        // Crea un objeto DatosPersonaje con la información obtenida. 
         DatosPersonaje datos = new DatosPersonaje(nombre, tipo, fechaNac, edad);
 
-        // Generar valores aleatorios para las características del personaje
-        int velocidad = random.Next(1, 11);
-        int destreza = random.Next(1, 6);
-        int fuerza = random.Next(1, 11);
-        int armadura = random.Next(1, 11);
-        int nivel = random.Next(1, 11);
-        int salud = 100;
-
+        //caracteristicas segun tipo: 
+        int velocidad, destreza, fuerza, armadura, nivel, salud;
+        switch (tipo)
+        {
+            case "Mago":
+                velocidad = random.Next(3, 8);
+                destreza = random.Next(4, 7);
+                fuerza = random.Next(1, 5);
+                armadura = random.Next(2, 6);
+                nivel = random.Next(1, 11);
+                salud = 100;
+                break;
+            case "Elfo":
+                velocidad = random.Next(5, 10);
+                destreza = random.Next(4, 8);
+                fuerza = random.Next(2, 6);
+                armadura = random.Next(3, 7);
+                nivel = random.Next(1, 11);
+                salud = 100;
+                break;
+            case "Enano":
+                velocidad = random.Next(1,11);
+                destreza = random.Next(3, 7);
+                fuerza = random.Next(5, 10);
+                armadura = random.Next(4, 8);
+                nivel = random.Next(1, 11);
+                salud = 100;
+                break;
+            case "Humano":
+                velocidad = random.Next(4, 8);
+                destreza = random.Next(4, 8);
+                fuerza = random.Next(4, 8);
+                armadura = random.Next(4, 8);
+                nivel = random.Next(1, 11);
+                salud = 100;
+                break;
+            case "Raconeano":
+                velocidad = random.Next(6, 10);
+                destreza = random.Next(5, 9);
+                fuerza = random.Next(3, 7);
+                armadura = random.Next(2, 6);
+                nivel = random.Next(1, 11);
+                salud = 100;
+                break;
+            case "Demonio":
+                velocidad = random.Next(3, 8);
+                destreza = random.Next(3, 7);
+                fuerza = random.Next(6, 10);
+                armadura = random.Next(4, 8);
+                nivel = random.Next(1, 11);
+                salud = 100;
+                break;
+            case "Angel":
+                velocidad = random.Next(5, 9);
+                destreza = random.Next(5, 9);
+                fuerza = random.Next(4, 8);
+                armadura = random.Next(3, 7);
+                nivel = random.Next(1, 11);
+                salud = 100;
+                break;
+            default:
+                velocidad = random.Next(1, 11);
+                destreza = random.Next(1, 6);
+                fuerza = random.Next(1, 11);
+                armadura = random.Next(1, 11);
+                nivel = random.Next(1, 11);
+                salud = 100;
+                break;
+        }
         CaracteristicasPersonaje caracteristicas = new CaracteristicasPersonaje(velocidad, armadura, fuerza, nivel, salud, destreza);
 
         Personaje nuevoPersonaje = new Personaje(datos, caracteristicas);
         return nuevoPersonaje;
     }
 
+    /*Trata de obtener un usuario aleatorio de la API utilizando reintentos con retrasos exponenciales en caso de que se produzca el error de "demasiadas solicitudes". Si después de varios intentos no se puede obtener el usuario, retorna null */
     private static async Task<UsuarioAleatorio> ObtenerUsuarioAleatorioConRetries()
     {
         int delay = initialDelay;
-
+        //intenta un maximo de maxRetries veces 
         for (int retry = 0; retry < maxRetries; retry++)
         {
             try
             {
+                // intenta obtener usuario
                 return await MiApi.GetGeneraUsuario();
             }
             catch (HttpRequestException e) when (e.StatusCode == HttpStatusCode.TooManyRequests)
             {
+                // verifica si el intento actual es el último para salir del bucle.
                 if (retry == maxRetries - 1)
-                    throw;
-
+                {
+                    return null;
+                }
+                // el código espera por un tiempo y aumenta la espera para el proximo intento 
                 await Task.Delay(delay);
-                delay *= 2; // Retraso exponencial
+                delay *= 2; //exponencial 
+            }
+            catch
+            {
+                return null;
             }
         }
-
-        throw new Exception("No se pudo obtener un usuario aleatorio después de varios intentos.");
+        return null; // Si falla después de todos los intentos
     }
-
-
 
     private class TiposPersonajes
     {
@@ -79,6 +153,17 @@ public class fabricaPersonajes()
             int i = random.Next(ListaDeTipos.Count);
             return ListaDeTipos[i];
         }
+    }
+
+    private static string ObtenerNombreAleatorio()
+    {
+        List<string> ListaDeNombres = new List<string>
+        {
+        "Arthur", "Lancelot", "Guinevere", "Merlin", "Gawain", "Morgana", "Percival", "Lazaro", "Dehiara", "Xanthor"
+        };
+
+        int i = random.Next(ListaDeNombres.Count);
+        return ListaDeNombres[i];
     }
     private static DateTime ObtenerFechaAleatoria()
     {

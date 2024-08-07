@@ -5,7 +5,7 @@ public class Menu
     Visuales visuales = new Visuales();
     public void MostrarMenuInicio()
     {
-        Console.Clear(); // Limpiar la pantalla antes de mostrar el menú
+        Console.Clear(); 
         visuales.CentrarTexto("====================================");
         visuales.CentrarTexto("           MENU PRINCIPAL           ");
         visuales.CentrarTexto("====================================");
@@ -29,18 +29,18 @@ public class Menu
         Console.ResetColor();
     }
 
-    public int ObtenerOpcion()
+    public int ObtenerOpcion(int max)
     {
         int opcion;
         bool valida;
-        visuales.CentrarTexto("Elija una opción (1-3): ");
+        visuales.CentrarTexto($"Elija una opción entre 1 y {max}: ");
         do
         {
             string entrada = Console.ReadLine();
-            valida = int.TryParse(entrada, out opcion) && opcion >= 1 && opcion <= 3;
+            valida = int.TryParse(entrada, out opcion) && opcion >= 1 && opcion <= max;
             if (!valida)
             {
-                visuales.CentrarTexto("Opción inválida. Por favor, ingrese un número entre 1 y 3.");
+                visuales.CentrarTexto($"Opción inválida. Por favor, ingrese un número entre 1 y {max}.");
             }
         } while (!valida);
         return opcion;
@@ -66,21 +66,5 @@ public class Menu
         visuales.CentrarTexto("====================================");
         Console.WriteLine();
 
-    }
-    public int ObtenerOpcionAtaque()
-    {
-        int opcion;
-        bool valida;
-        visuales.CentrarTexto("Elija una opción (1-5): ");
-        do
-        {
-            string entrada = Console.ReadLine();
-            valida = int.TryParse(entrada, out opcion) && opcion >= 1 && opcion <= 5;
-            if (!valida)
-            {
-                visuales.CentrarTexto("Opción inválida. Por favor, ingrese un número entre 1 y 5.");
-            }
-        } while (!valida);
-        return opcion;
     }
 }

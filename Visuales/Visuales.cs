@@ -261,6 +261,7 @@ public class Visuales
                                                                                            
                                                                                            
         ";
+        Console.Clear();
         CentrarASCII(textoGandorFinal);
     }
 

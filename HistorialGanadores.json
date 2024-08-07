@@ -38,7 +38,13 @@
   {
     "Nombre": "Dovie",
     "Tipo": "Elfo",
-    "Salud": 66,
+    "Salud": 92,
+    "Nivel": 8
+  },
+  {
+    "Nombre": "Rory",
+    "Tipo": "Enano",
+    "Salud": 26,
     "Nivel": 10
   }
 ]

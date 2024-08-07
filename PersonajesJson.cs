@@ -34,8 +34,6 @@ public class PersonajesJson
         return listadoPersonajes;
     }
 
-
-
     public bool Existe(string nombreArchivo)
     {
         FileInfo archivo = new FileInfo(nombreArchivo);

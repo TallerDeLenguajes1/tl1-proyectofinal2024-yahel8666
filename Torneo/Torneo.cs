@@ -121,14 +121,14 @@ public class Torneo
                     break;
                 }
             } else {    
-                TurnoAtaque(miPersonaje, enemigo); //ataca miPersonaje 
+                TurnoAtaque(miPersonaje, enemigo, ConsoleColor.Green); //ataca miPersonaje 
                 if (enemigo.Caracteristicas.Salud <= 0)
                 {
                     Ganador = miPersonaje;
                     break;
                 }
             }
-            TurnoAtaque(enemigo, miPersonaje); //ataca enemigo
+            TurnoAtaque(enemigo, miPersonaje, ConsoleColor.Red); //ataca enemigo
             if (miPersonaje.Caracteristicas.Salud <= 0)
             {
                 Ganador = enemigo;
@@ -137,7 +137,7 @@ public class Torneo
         }
         return Ganador;
     }
-    private void TurnoAtaque(Personaje atacante, Personaje defensor)
+    private void TurnoAtaque(Personaje atacante, Personaje defensor, ConsoleColor color)
     {
         Random random = new Random();
         const int constanteAjuste = 500;
@@ -149,7 +149,9 @@ public class Torneo
         dañoProvocado = Math.Max(0, dañoProvocado); 
         defensor.Caracteristicas.Salud -= dañoProvocado;
 
+        visuales.MostrarAColor(".....................", color);
         visuales.CentrarTexto($"{atacante.Datos.Nombre} ataca a {defensor.Datos.Nombre} y causa {dañoProvocado} de daño.");
+        visuales.MostrarAColor(".....................", color);
         Thread.Sleep(1000);
     }
 
@@ -184,6 +186,7 @@ public class Torneo
                 visuales.CentrarTexto("No hay mejora.");
                 break;
         }
+        visuales.MostrarAColor(".....................", ConsoleColor.DarkCyan);
         Thread.Sleep(2500);
     }
 
@@ -195,30 +198,31 @@ public class Torneo
         switch (opcionAtaque)
         {
             case 1: 
-            visuales.CentrarTexto($"{atacante.Datos.Nombre} realiza un ataque de agua");
+            visuales.CentrarTexto($"✧ {atacante.Datos.Nombre} realiza un ataque de agua ✧");
             atacante.Caracteristicas.Fuerza +=3; 
             atacante.Caracteristicas.Armadura-=2;
             break;
             case 2: 
-            visuales.CentrarTexto($"{atacante.Datos.Nombre} realiza un ataque de fuego");
+            visuales.CentrarTexto($"✧ {atacante.Datos.Nombre} realiza un ataque de fuego ✧");
             atacante.Caracteristicas.Destreza +=2; 
             atacante.Caracteristicas.Velocidad-=1;
             break;
             case 3: 
-            visuales.CentrarTexto($"{atacante.Datos.Nombre} realiza un ataque de aire");
+            visuales.CentrarTexto($"✧ {atacante.Datos.Nombre} realiza un ataque de aire ✧");
             atacante.Caracteristicas.Nivel +=1; 
             atacante.Caracteristicas.Armadura-=3;
             break;
             case 4: 
-            visuales.CentrarTexto($"{atacante.Datos.Nombre} realiza un ataque de tierra");
+            visuales.CentrarTexto($"✧ {atacante.Datos.Nombre} realiza un ataque de tierra ✧");
             atacante.Caracteristicas.Fuerza +=3; 
             atacante.Caracteristicas.Velocidad-=2;
             break;
             case 5: 
-            visuales.CentrarTexto($"{atacante.Datos.Nombre} decide no realizar un ataque especial");
+            visuales.CentrarTexto($"✧ {atacante.Datos.Nombre} decide no realizar un ataque especial ✧");
             break;
         }
-        TurnoAtaque(atacante, defensor);
+        Thread.Sleep(1000);
+        TurnoAtaque(atacante, defensor, ConsoleColor.DarkCyan);
     }  
 
     private void PresentacionLuchadores(Personaje miPersonaje, Personaje enemigo)
@@ -227,11 +231,9 @@ public class Torneo
         Console.WriteLine("");
         visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
         Thread.Sleep(1000);
-        visuales.MostrarAColor("VS", ConsoleColor.DarkRed);
+        visuales.MostrarAColor("VS", ConsoleColor.DarkCyan);
         Thread.Sleep(1000);
         visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
-        Thread.Sleep(1000);
-        visuales.MostrarAColor("________________________", ConsoleColor.DarkCyan);
         Thread.Sleep(2000);
     }
 }

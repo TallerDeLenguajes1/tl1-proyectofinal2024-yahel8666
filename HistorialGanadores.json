@@ -52,5 +52,23 @@
     "Tipo": "Elfo",
     "Salud": 89,
     "Nivel": 7
+  },
+  {
+    "Nombre": "Zane",
+    "Tipo": "Enano",
+    "Salud": 11,
+    "Nivel": 5
+  },
+  {
+    "Nombre": "Dovie",
+    "Tipo": "Elfo",
+    "Salud": 81,
+    "Nivel": 9
+  },
+  {
+    "Nombre": "Teisha",
+    "Tipo": "Mago",
+    "Salud": 75,
+    "Nivel": 7
   }
 ]

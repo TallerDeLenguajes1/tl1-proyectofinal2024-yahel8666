@@ -50,7 +50,7 @@ public class Menu
     public void mostrarMenuAtaque()
     { 
         Console.WriteLine();
-        visuales.MostrarAColor("     ATAQUES ESPECIALES    ", ConsoleColor.White);
+        visuales.MostrarAColor("  ˗ˏˋ  ATAQUES ESPECIALES  ´ˎ˗    ", ConsoleColor.White);
         visuales.MostrarAColor("------------ ✦ -------------", ConsoleColor.DarkCyan);
         MostrarOpcion("1", "Ataque de agua - mas fuerza, menos armadura");
         MostrarOpcion("2", "Ataque de fuego - mas destreza, menos velocidad");

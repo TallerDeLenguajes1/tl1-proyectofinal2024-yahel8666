@@ -325,6 +325,7 @@ public class Visuales
                                                                      
                                                                                                                           
         ";
+        Console.Clear();
         Console.WriteLine("");
         Console.WriteLine("");
         CentrarASCII(textoPrimerRound);
@@ -356,6 +357,7 @@ public class Visuales
                                                                                     
                                                                            
         ";
+        Console.Clear(); 
         Console.WriteLine("");
         Console.WriteLine("");
         CentrarASCII(textoSegundoRound);
@@ -387,6 +389,7 @@ public class Visuales
                                                                      
                                                                        
         ";
+        Console.Clear(); 
         Console.WriteLine("");
         Console.WriteLine("");
         CentrarASCII(textoFinalRound);

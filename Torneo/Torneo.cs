@@ -41,8 +41,7 @@ public class Torneo
     }
 
     private Personaje PrimerRound(Personaje miPersonaje, Personaje enemigo)
-    {
-        Console.Clear(); 
+    { 
         visuales.MensajePrimerRound();
         Console.Clear();
         PresentacionLuchadores(miPersonaje, enemigo);
@@ -63,7 +62,6 @@ public class Torneo
 
     private Personaje SegundoRound(Personaje miPersonaje, Personaje enemigo)
     {
-        Console.Clear(); 
         visuales.MensajeSegundoRound();
         Console.Clear(); 
         PresentacionLuchadores(miPersonaje, enemigo);
@@ -84,7 +82,6 @@ public class Torneo
 
     private Personaje FinalRound(Personaje miPersonaje, Personaje enemigo)
     {
-        Console.Clear(); 
         visuales.MensajeFinalRound();
         Console.Clear(); 
         PresentacionLuchadores(miPersonaje, enemigo);

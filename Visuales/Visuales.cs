@@ -9,7 +9,7 @@ public class Visuales
         int espaciosPrevios = (anchoPantalla - texto.Length) / 2;
         Console.WriteLine(new string(' ', Math.Max(0, espaciosPrevios)) + texto);
     }
-    
+
     public void MostrarAColor(string mensaje, ConsoleColor color)
     {
         // Obtiene el ancho de la consola
@@ -80,8 +80,8 @@ public class Visuales
         ImprimirFila("Nivel", personaje.Caracteristicas.Nivel.ToString());
         ImprimirFila("Salud", personaje.Caracteristicas.Salud.ToString());
         MostrarAColor(marcoSuperiorInferior, ConsoleColor.DarkCyan);
-        CentrarTexto("Presiona Enter para ver el siguiente personaje...");
-        CentrarTexto("Presiona cualquier otra tecla para omitir...");
+        MostrarAColor("Presiona Enter para ver el siguiente personaje...", ConsoleColor.DarkGray);
+        MostrarAColor("Presiona cualquier otra tecla para omitir...",ConsoleColor.DarkGray);
     }
 
     private void ImprimirFila(string etiqueta, string valor)
@@ -109,8 +109,10 @@ public class Visuales
         ImprimirFila("Armadura", personaje.Caracteristicas.Armadura.ToString());
         ImprimirFila("Nivel", personaje.Caracteristicas.Nivel.ToString());
         ImprimirFila("Salud", personaje.Caracteristicas.Salud.ToString());
-          MostrarAColor(marcoSuperiorInferior, ConsoleColor.DarkCyan);
-        Thread.Sleep(3000);
+        MostrarAColor(marcoSuperiorInferior, ConsoleColor.DarkCyan);
+        Thread.Sleep(1000);
+        MostrarAColor("Presiona una tecla para continuar...", ConsoleColor.DarkGray);
+        Console.ReadKey(); 
 
     }
 
@@ -132,29 +134,33 @@ public class Visuales
                 CentrarTexto($"Ganador {i + 1}: {listadoGanadores[i].Nombre} con {listadoGanadores[i].Salud} de salud final");
             }
         }
-        Thread.Sleep(5000);
+        Thread.Sleep(1000);
+        Console.WriteLine("");
+        MostrarAColor("Presiona una tecla para volver al menu...", ConsoleColor.DarkGray);
+        Console.ReadKey(); 
     }
 
 
     private void CentrarASCII(string texto)
     {
-       // Dividir el texto en líneas, manejando los diferentes saltos de línea posibles
-    string[] lineas = texto.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-    
-    // Obtener el ancho de la pantalla de la consola
-    int anchoPantalla = Console.WindowWidth;
-    
-    foreach (string linea in lineas)
-    {
-        // Calcular la cantidad de espacios en blanco necesarios para centrar la línea
-        int espaciosEnBlanco = (anchoPantalla - linea.Length) / 2;
-        
-        // Asegurarse de que la cantidad de espacios en blanco no sea negativa
-        espaciosEnBlanco = Math.Max(0, espaciosEnBlanco);
-        
-        // Imprimir la línea centrada
-        Console.WriteLine(new string(' ', espaciosEnBlanco) + linea);
-    }
+        // Dividir el texto en líneas, manejando los diferentes saltos de línea posibles
+        string[] lineas = texto.Split(new[] { "\r\n", "\n", "\r" }, StringSplitOptions.None);
+
+        // Obtener el ancho de la pantalla de la consola
+        int anchoPantalla = Console.WindowWidth;
+
+        foreach (string linea in lineas)
+        {
+            // Calcular la cantidad de espacios en blanco necesarios para centrar la línea
+            int espaciosEnBlanco = (anchoPantalla - linea.Length) / 2;
+
+            // Asegurarse de que la cantidad de espacios en blanco no sea negativa
+            espaciosEnBlanco = Math.Max(0, espaciosEnBlanco);
+
+            // Imprimir la línea centrada
+            Console.WriteLine(new string(' ', espaciosEnBlanco) + linea);
+        }
+
     }
 
     public void Titulo()
@@ -357,7 +363,7 @@ public class Visuales
                                                                                     
                                                                            
         ";
-        Console.Clear(); 
+        Console.Clear();
         Console.WriteLine("");
         Console.WriteLine("");
         CentrarASCII(textoSegundoRound);
@@ -389,7 +395,8 @@ public class Visuales
                                                                      
                                                                        
         ";
-        Console.Clear(); 
+
+        Console.Clear();
         Console.WriteLine("");
         Console.WriteLine("");
         CentrarASCII(textoFinalRound);

@@ -70,5 +70,17 @@
     "Tipo": "Mago",
     "Salud": 75,
     "Nivel": 7
+  },
+  {
+    "Nombre": "Mendy",
+    "Tipo": "Angel",
+    "Salud": 85,
+    "Nivel": 10
+  },
+  {
+    "Nombre": "Dovie",
+    "Tipo": "Elfo",
+    "Salud": 94,
+    "Nivel": 7
   }
 ]

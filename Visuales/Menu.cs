@@ -34,7 +34,7 @@ public class Menu
     {
         int opcion;
         bool valida;
-        visuales.CentrarTexto($"Elija una opción entre 1 y {max}: ");
+        visuales.MostrarAColor($"Elija una opción entre 1 y {max}: ", ConsoleColor.DarkGray);
         do
         {
             string entrada = Console.ReadLine();

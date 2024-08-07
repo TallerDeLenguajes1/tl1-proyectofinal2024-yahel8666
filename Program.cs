@@ -18,7 +18,7 @@ Personaje personajeSeleccionado;
 string archivoJson = "archivoPersonajes.json";
 string archivoGanadores = "HistorialGanadores.json";
 
-// visuales.Titulo();
+visuales.Titulo();
 // texto.MensajePresentacion();
 int opcionMenu;
 do

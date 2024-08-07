@@ -121,7 +121,9 @@ public class Visuales
         Console.Clear();
         Console.WriteLine("");
         Console.WriteLine("");
-        CentrarTexto("HISTORIAL DE GANADORES");
+        MostrarAColor("--------------------------", ConsoleColor.DarkCyan);
+        MostrarAColor(" 「 ✦   Ganadores Historicos    ✦ 」 ", ConsoleColor.White);
+        MostrarAColor("--------------------------", ConsoleColor.DarkCyan);
         if (listadoGanadores == null || listadoGanadores.Count == 0)
         {
             CentrarTexto("No hay personajes para mostrar.");
@@ -131,9 +133,10 @@ public class Visuales
         {
             for (int i = 0; i < listadoGanadores.Count; i++)
             {
-                CentrarTexto($"Ganador {i + 1}: {listadoGanadores[i].Nombre} con {listadoGanadores[i].Salud} de salud final");
+                CentrarTexto($" ✩ Ganador {i + 1}: {listadoGanadores[i].Nombre} con {listadoGanadores[i].Salud} de salud final");
             }
         }
+        MostrarAColor("--------------------------", ConsoleColor.DarkCyan);
         Thread.Sleep(1000);
         Console.WriteLine("");
         MostrarAColor("Presiona una tecla para volver al menu...", ConsoleColor.DarkGray);
@@ -141,7 +144,7 @@ public class Visuales
     }
 
 
-    private void CentrarASCII(string texto)
+    public void CentrarASCII(string texto)
     {
         // Dividir el texto en líneas, manejando los diferentes saltos de línea posibles
         string[] lineas = texto.Split(new[] { "\r\n", "\n", "\r" }, StringSplitOptions.None);
@@ -223,14 +226,14 @@ public class Visuales
 
         string textoPerdedor = @"
    
-  ███████████  ██████████ ███████████   ██████████  █████  █████████  ███████████  ██████████
-░░███░░░░░███░░███░░░░░█░░███░░░░░███ ░░███░░░░███ ░░███  ███░░░░░███░█░░░███░░░█░░███░░░░░ █
- ░███    ░███ ░███  █ ░  ░███    ░███  ░███   ░░███ ░███ ░███    ░░░ ░   ░███  ░  ░███  █ ░ 
- ░██████████  ░██████    ░██████████   ░███    ░███ ░███ ░░█████████     ░███     ░██████   
- ░███░░░░░░   ░███░░█    ░███░░░░░███  ░███    ░███ ░███  ░░░░░░░░███    ░███     ░███░░█   
- ░███         ░███ ░   █ ░███    ░███  ░███    ███  ░███  ███    ░███    ░███     ░███ ░    █
- █████        ██████████ █████   █████  ██████████  █████░░█████████     █████     ██████████
-░░░░░        ░░░░░░░░░░ ░░░░░   ░░░░░ ░░░░░░░░░░   ░░░░░  ░░░░░░░░░     ░░░░░    ░░░░░░░░░░ 
+  ███████████  ██████████  ███████████   ██████████  █████  █████████  ███████████  ██████████
+░░███░░░░░███░░███░░░░░ █ ░███░░░░░███ ░░███░░░░███ ░░███  ███░░░░░███░█░░░███░░░█░░███░░░░░ █
+ ░███    ░███ ░███  █ ░   ░███    ░███  ░███   ░░███ ░███ ░███    ░░░ ░   ░███  ░  ░███  █ ░ 
+ ░██████████  ░██████     ░██████████   ░███    ░███ ░███ ░░█████████     ░███     ░██████   
+ ░███░░░░░░   ░███░░█     ░███░░░░░███  ░███    ░███ ░███  ░░░░░░░░███    ░███     ░███░░█   
+ ░███         ░███ ░   █  ░███    ░███  ░███    ███  ░███  ███    ░███    ░███     ░███ ░    █
+ █████        ██████████  █████   █████  ██████████  █████░░█████████     █████     ██████████
+░░░░░        ░░░░░░░░░░  ░░░░░   ░░░░░ ░░░░░░░░░░   ░░░░░  ░░░░░░░░░     ░░░░░    ░░░░░░░░░░ 
                                                                                             
                                                                                             
                                                                                                                                                        
@@ -245,12 +248,12 @@ public class Visuales
     public void MensajeGameOver()
     {
         string textoGameOver = @"
-   █████████    █████████    ██████ ██████   ██████████
-  ███░░░░░███  ███░░░░░███ ░░██████ ██████ ░░███░░░░░ █
+   █████████    █████████   ██████   ██████ ██████████
+  ███░░░░░███  ███░░░░░███ ░░██████ ██████ ░░███░░░░░█
  ███     ░░░  ░███    ░███  ░███░█████░███  ░███  █ ░ 
 ░███          ░███████████  ░███░░███ ░███  ░██████   
 ░███    █████ ░███░░░░░███  ░███ ░░░  ░███  ░███░░█   
-░░███  ░░███  ░███    ░███  ░███      ░███  ░███ ░    █
+░░███  ░░███  ░███    ░███  ░███      ░███  ░███ ░   █
  ░░█████████  █████   █████ █████     █████ ██████████
   ░░░░░░░░░  ░░░░░   ░░░░░ ░░░░░     ░░░░░ ░░░░░░░░░░ 
                                                       

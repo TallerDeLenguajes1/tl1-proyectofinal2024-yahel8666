@@ -18,7 +18,8 @@ Personaje personajeSeleccionado;
 string archivoJson = "archivoPersonajes.json";
 string archivoGanadores = "HistorialGanadores.json";
 
-visuales.Titulo();
+
+// visuales.Titulo();
 // texto.MensajePresentacion();
 int opcionMenu;
 do
@@ -47,10 +48,9 @@ do
             visuales.MostrarListaDePersonajes(listadoDePersonajes, 10);
             personajeSeleccionado = seleccionPersonaje.elegirMiPersonaje(listadoDePersonajes);
             visuales.MostrarUnPersonaje(personajeSeleccionado);
-            // texto.MensajeObteniendoEnemigos(); 
-            //texto.MostrarCarga();
+            await texto.MensajeObteniendoEnemigos();
             ListadoDeEnemigos = seleccionPersonaje.ObtenerEnemigos(listadoDePersonajes);
-            // texto.MensajeBuenaSuerte
+            // texto.MensajeNuevoTorneo();
             await nuevoTorneo.InicioTorneo(personajeSeleccionado, ListadoDeEnemigos);
             break;
         case 2:

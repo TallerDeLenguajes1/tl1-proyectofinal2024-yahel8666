@@ -82,5 +82,23 @@
     "Tipo": "Elfo",
     "Salud": 94,
     "Nivel": 7
+  },
+  {
+    "Nombre": "Ron",
+    "Tipo": "Demonio",
+    "Salud": 81,
+    "Nivel": 5
+  },
+  {
+    "Nombre": "Lanny",
+    "Tipo": "Angel",
+    "Salud": 80,
+    "Nivel": 9
+  },
+  {
+    "Nombre": "Rory",
+    "Tipo": "Enano",
+    "Salud": 4,
+    "Nivel": 5
   }
 ]

@@ -10,7 +10,7 @@ public class Torneo
         var historial = new HistorialJson(); 
         var fabrica = new fabricaPersonajes();
 
-        //control - en caso de que no haya suficientes enemigos, los crea. 
+        //control - en caso de que no haya suficientes enemigos, los crea. (muy poco probable)
         if (listadoEnemigos == null || listadoEnemigos.Count < 3) {
             
             for (int i = 0; i < 3; i++)
@@ -44,14 +44,8 @@ public class Torneo
     {
         Console.Clear(); 
         visuales.MensajePrimerRound();
-        Thread.Sleep(2000);
         Console.Clear();
-        visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
-        Thread.Sleep(1000);
-        visuales.CentrarTexto("VS");
-        Thread.Sleep(1000);
-        visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
-        Thread.Sleep(2000);
+        PresentacionLuchadores(miPersonaje, enemigo);
         Personaje Ganador = RealizarCombate(miPersonaje, enemigo);
         Thread.Sleep(1000);
          if (Ganador == miPersonaje)
@@ -71,14 +65,8 @@ public class Torneo
     {
         Console.Clear(); 
         visuales.MensajeSegundoRound();
-        Thread.Sleep(2000);
         Console.Clear(); 
-        visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
-        Thread.Sleep(1000);
-        visuales.CentrarTexto("VS");
-        Thread.Sleep(1000);
-        visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
-        Thread.Sleep(2000);
+        PresentacionLuchadores(miPersonaje, enemigo);
         Personaje Ganador = RealizarCombate(miPersonaje, enemigo);
         Thread.Sleep(1000);
         if (Ganador == miPersonaje)
@@ -98,14 +86,8 @@ public class Torneo
     {
         Console.Clear(); 
         visuales.MensajeFinalRound();
-        Thread.Sleep(2000);
         Console.Clear(); 
-        visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
-        Thread.Sleep(1000);
-        visuales.CentrarTexto("VS");
-        Thread.Sleep(1000);
-        visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
-        Thread.Sleep(2000);
+        PresentacionLuchadores(miPersonaje, enemigo);
         Personaje Ganador = RealizarCombate(miPersonaje, enemigo);
         Thread.Sleep(1000);
         if (Ganador == miPersonaje)
@@ -118,7 +100,6 @@ public class Torneo
             visuales.MensajePerdedor();
             Console.Clear();
             visuales.MensajeGameOver();
-            
         }
         return Ganador;
     }
@@ -241,5 +222,19 @@ public class Torneo
             break;
         }
         TurnoAtaque(atacante, defensor);
+    }  
+
+    private void PresentacionLuchadores(Personaje miPersonaje, Personaje enemigo)
+    {
+        Console.WriteLine("");
+        Console.WriteLine("");
+        visuales.CentrarTexto($"{miPersonaje.Datos.Nombre}");
+        Thread.Sleep(1000);
+        visuales.MostrarAColor("VS", ConsoleColor.DarkRed);
+        Thread.Sleep(1000);
+        visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
+        Thread.Sleep(1000);
+        visuales.MostrarAColor("________________________", ConsoleColor.DarkCyan);
+        Thread.Sleep(2000);
     }
 }

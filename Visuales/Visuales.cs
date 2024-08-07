@@ -94,7 +94,7 @@ public class Visuales
     public void MostrarUnPersonaje(Personaje personaje)
     {
         Console.WriteLine("");
-        MostrarAColor(" ✦ Personaje elegido: ", ConsoleColor.White);
+        MostrarAColor(" 「 ✦   Personaje elegido   ✦ 」 ", ConsoleColor.White);
         string marcoSuperiorInferior = new string('=', AnchoMarco);
         string marcoMedio = new string('-', AnchoMarco);
         MostrarAColor(marcoSuperiorInferior, ConsoleColor.DarkCyan);
@@ -328,6 +328,7 @@ public class Visuales
         Console.WriteLine("");
         Console.WriteLine("");
         CentrarASCII(textoPrimerRound);
+        Thread.Sleep(2000);
     }
 
     public void MensajeSegundoRound()
@@ -358,6 +359,7 @@ public class Visuales
         Console.WriteLine("");
         Console.WriteLine("");
         CentrarASCII(textoSegundoRound);
+        Thread.Sleep(2000);
     }
 
     public void MensajeFinalRound()
@@ -388,6 +390,7 @@ public class Visuales
         Console.WriteLine("");
         Console.WriteLine("");
         CentrarASCII(textoFinalRound);
+        Thread.Sleep(2000);
     }
 
 }

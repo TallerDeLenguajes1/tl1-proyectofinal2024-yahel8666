@@ -17,7 +17,7 @@ public class PersonajesJson
 
     public List<Personaje> LeerPersonajes(string nombreArchivo)
     {
-        List<Personaje> listadoPersonajes = new List<Personaje>();
+        List<Personaje> listadoPersonajes = new List<Personaje>();  
         if (Existe(nombreArchivo))
         {
             string jsonString = File.ReadAllText(nombreArchivo);
@@ -26,9 +26,7 @@ public class PersonajesJson
             {
                 listadoPersonajes = personajesDeserializados;
             }
-        }
-        else
-        {
+        } else {
             Console.WriteLine("No existe el archivo de personajes.");
         }
         return listadoPersonajes;

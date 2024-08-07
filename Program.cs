@@ -47,8 +47,10 @@ do
             visuales.MostrarListaDePersonajes(listadoDePersonajes, 10);
             personajeSeleccionado = seleccionPersonaje.elegirMiPersonaje(listadoDePersonajes);
             visuales.MostrarUnPersonaje(personajeSeleccionado);
-
+            // texto.MensajeObteniendoEnemigos(); 
+            //texto.MostrarCarga();
             ListadoDeEnemigos = seleccionPersonaje.ObtenerEnemigos(listadoDePersonajes);
+            // texto.MensajeBuenaSuerte
             await nuevoTorneo.InicioTorneo(personajeSeleccionado, ListadoDeEnemigos);
             break;
         case 2:

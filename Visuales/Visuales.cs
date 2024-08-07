@@ -9,6 +9,26 @@ public class Visuales
         int espaciosPrevios = (anchoPantalla - texto.Length) / 2;
         Console.WriteLine(new string(' ', Math.Max(0, espaciosPrevios)) + texto);
     }
+    
+    public void MostrarAColor(string mensaje, ConsoleColor color)
+    {
+        // Obtiene el ancho de la consola
+        int anchoPantalla = Console.WindowWidth;
+
+        // Calcula el espacio lateral necesario para centrar el mensaje
+        int anchoMensaje = mensaje.Length;
+        int espacioLateral = (anchoPantalla - anchoMensaje) / 2;
+
+        // Configura el color
+        Console.ForegroundColor = color;
+
+        // Centra el mensaje
+        Console.SetCursorPosition(espacioLateral, Console.CursorTop);
+        Console.WriteLine(mensaje);
+
+        // Restablece el color de la consola
+        Console.ResetColor();
+    }
 
     public void MostrarListaDePersonajes(List<Personaje> personajes, int cantidad)
     {
@@ -20,6 +40,8 @@ public class Visuales
         int indiceActual = 0;
         ConsoleKeyInfo teclaPresionada;
         Console.Clear();
+        Console.WriteLine("");
+        Console.WriteLine("");
         CentrarTexto("A continuacion, te mostramos los personajes disponibles para elegir: ");
         Thread.Sleep(2000);
         do
@@ -41,22 +63,23 @@ public class Visuales
         // Crear un marco alrededor de la tabla
         string marcoSuperiorInferior = new string('=', AnchoMarco);
         string marcoMedio = new string('-', AnchoMarco);
-
-        CentrarTexto(marcoSuperiorInferior);
+        Console.WriteLine("");
+        Console.WriteLine("");
+        MostrarAColor(marcoSuperiorInferior, ConsoleColor.DarkCyan);
         CentrarTexto($"| {"Personaje",-12} | {numero,-AnchoColumna} |");
-        CentrarTexto(marcoMedio);
+        MostrarAColor(marcoMedio, ConsoleColor.DarkCyan);
         ImprimirFila("Nombre", personaje.Datos.Nombre);
         ImprimirFila("Tipo", personaje.Datos.Tipo);
         ImprimirFila("Fecha Nac.", personaje.Datos.FechaNac.ToShortDateString());
         ImprimirFila("Edad", personaje.Datos.Edad.ToString());
-        CentrarTexto(marcoMedio);
+        MostrarAColor(marcoMedio, ConsoleColor.DarkCyan);
         ImprimirFila("Velocidad", personaje.Caracteristicas.Velocidad.ToString());
         ImprimirFila("Destreza", personaje.Caracteristicas.Destreza.ToString());
         ImprimirFila("Fuerza", personaje.Caracteristicas.Fuerza.ToString());
         ImprimirFila("Armadura", personaje.Caracteristicas.Armadura.ToString());
         ImprimirFila("Nivel", personaje.Caracteristicas.Nivel.ToString());
         ImprimirFila("Salud", personaje.Caracteristicas.Salud.ToString());
-        CentrarTexto(marcoSuperiorInferior);
+        MostrarAColor(marcoSuperiorInferior, ConsoleColor.DarkCyan);
         CentrarTexto("Presiona Enter para ver el siguiente personaje...");
         CentrarTexto("Presiona cualquier otra tecla para omitir...");
     }
@@ -70,23 +93,23 @@ public class Visuales
 
     public void MostrarUnPersonaje(Personaje personaje)
     {
-        CentrarTexto("Personaje elegido: ");
+        Console.WriteLine("");
+        MostrarAColor(" ✦ Personaje elegido: ", ConsoleColor.White);
         string marcoSuperiorInferior = new string('=', AnchoMarco);
         string marcoMedio = new string('-', AnchoMarco);
-        CentrarTexto(marcoSuperiorInferior);
-        CentrarTexto(marcoMedio);
+        MostrarAColor(marcoSuperiorInferior, ConsoleColor.DarkCyan);
         ImprimirFila("Nombre", personaje.Datos.Nombre);
         ImprimirFila("Tipo", personaje.Datos.Tipo);
         ImprimirFila("Fecha Nac.", personaje.Datos.FechaNac.ToShortDateString());
         ImprimirFila("Edad", personaje.Datos.Edad.ToString());
-        CentrarTexto(marcoMedio);
+        MostrarAColor(marcoMedio, ConsoleColor.DarkCyan);
         ImprimirFila("Velocidad", personaje.Caracteristicas.Velocidad.ToString());
         ImprimirFila("Destreza", personaje.Caracteristicas.Destreza.ToString());
         ImprimirFila("Fuerza", personaje.Caracteristicas.Fuerza.ToString());
         ImprimirFila("Armadura", personaje.Caracteristicas.Armadura.ToString());
         ImprimirFila("Nivel", personaje.Caracteristicas.Nivel.ToString());
         ImprimirFila("Salud", personaje.Caracteristicas.Salud.ToString());
-        CentrarTexto(marcoSuperiorInferior);
+          MostrarAColor(marcoSuperiorInferior, ConsoleColor.DarkCyan);
         Thread.Sleep(3000);
 
     }
@@ -94,11 +117,9 @@ public class Visuales
     public void MostrarHistorialGanadores(List<Ganador> listadoGanadores)
     {
         Console.Clear();
-        string lineaDecorativa = new string('=', Console.WindowWidth - 20);
-
-        CentrarTexto(lineaDecorativa);
+        Console.WriteLine("");
+        Console.WriteLine("");
         CentrarTexto("HISTORIAL DE GANADORES");
-        CentrarTexto(lineaDecorativa);
         if (listadoGanadores == null || listadoGanadores.Count == 0)
         {
             CentrarTexto("No hay personajes para mostrar.");
@@ -163,6 +184,8 @@ public class Visuales
           
         ";
         Console.Clear();
+        Console.WriteLine("");
+        Console.WriteLine("");
         CentrarASCII(tituloJuego);
         Thread.Sleep(3000);
     }
@@ -182,7 +205,11 @@ public class Visuales
                                                                                            
                                                                                             ";
 
+        Console.Clear();
+        Console.WriteLine("");
+        Console.WriteLine("");
         CentrarASCII(textoGanador);
+        Thread.Sleep(3000);
     }
 
     public void MensajePerdedor()
@@ -201,8 +228,12 @@ public class Visuales
                                                                                             
                                                                                             
                                                                                                                                                        
-                                                                                            ";
+                                                                   ";
+        Console.Clear();
+        Console.WriteLine("");
+        Console.WriteLine("");
         CentrarASCII(textoPerdedor);
+        Thread.Sleep(2000);
     }
 
     public void MensajeGameOver()
@@ -231,8 +262,10 @@ public class Visuales
                                                       
                                                       
         ";
-
+        Console.WriteLine("");
+        Console.WriteLine("");
         CentrarASCII(textoGameOver);
+        Thread.Sleep(3000);
     }
 
     public void MensajeGanadorFinal()
@@ -262,6 +295,8 @@ public class Visuales
                                                                                            
         ";
         Console.Clear();
+        Console.WriteLine("");
+        Console.WriteLine("");
         CentrarASCII(textoGandorFinal);
     }
 
@@ -290,7 +325,8 @@ public class Visuales
                                                                      
                                                                                                                           
         ";
-
+        Console.WriteLine("");
+        Console.WriteLine("");
         CentrarASCII(textoPrimerRound);
     }
 
@@ -319,7 +355,8 @@ public class Visuales
                                                                                     
                                                                            
         ";
-
+        Console.WriteLine("");
+        Console.WriteLine("");
         CentrarASCII(textoSegundoRound);
     }
 
@@ -348,7 +385,8 @@ public class Visuales
                                                                      
                                                                        
         ";
-
+        Console.WriteLine("");
+        Console.WriteLine("");
         CentrarASCII(textoFinalRound);
     }
 

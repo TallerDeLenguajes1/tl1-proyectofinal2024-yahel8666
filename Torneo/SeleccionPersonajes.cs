@@ -13,6 +13,8 @@ namespace miProyecto
             }
 
             Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
             visuales.CentrarTexto("Seleccione el número del personaje que desea elegir (1 a " + personajes.Count + "):");
             int numeroSeleccionado;
             bool entradaValida;
@@ -22,7 +24,7 @@ namespace miProyecto
                 entradaValida = int.TryParse(entradaUsuario, out numeroSeleccionado) && numeroSeleccionado >= 1 && numeroSeleccionado <= personajes.Count;
                 if (!entradaValida)
                 {
-                    visuales.CentrarTexto("Entrada inválida. Por favor, ingrese un número entre 1 y " + personajes.Count + ":");
+                    visuales.MostrarAColor("Entrada inválida. Por favor, ingrese un número entre 1 y " + personajes.Count + ":", ConsoleColor.DarkRed);
                 }
             } while (!entradaValida);
             Personaje personajeSeleccionado = personajes[numeroSeleccionado - 1];
@@ -39,9 +41,6 @@ namespace miProyecto
                 visuales.CentrarTexto("No hay personajes para seleccionar.");
                 return null;
             }
-            Console.Clear();
-            visuales.CentrarTexto("Ahora vamos a elegir a tus enemigos...");
-            Thread.Sleep(3000);
             Random random = new Random();
             for (int i = 0; i < 3; i++)
             {
@@ -49,10 +48,7 @@ namespace miProyecto
                 listadoDeEnemigos.Add(contrincante);
                 personajes.Remove(contrincante);
             }
-            visuales.CentrarTexto("Todo listo! Que la fuerza te acompañe");
-            Thread.Sleep(2000);
             return listadoDeEnemigos;
         }
-
     }
 }

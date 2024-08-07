@@ -2,9 +2,9 @@
     {
       "Caracteristicas": {
         "Velocidad": 4,
-        "Armadura": 5,
-        "Fuerza": 4,
-        "Nivel": 7,
+        "Armadura": 1,
+        "Fuerza": 2,
+        "Nivel": 5,
         "Salud": 100,
         "Destreza": 5
       },
@@ -17,10 +17,10 @@
     },
     {
       "Caracteristicas": {
-        "Velocidad": 6,
-        "Armadura": 5,
-        "Fuerza": 7,
-        "Nivel": 8,
+        "Velocidad": 2,
+        "Armadura": 3,
+        "Fuerza": 5,
+        "Nivel": 6,
         "Salud": 100,
         "Destreza": 6
       },
@@ -33,12 +33,12 @@
     },
     {
       "Caracteristicas": {
-        "Velocidad": 6,
-        "Armadura": 5,
-        "Fuerza": 9,
-        "Nivel": 7,
+        "Velocidad": 4,
+        "Armadura": 1,
+        "Fuerza": 2,
+        "Nivel": 5,
         "Salud": 100,
-        "Destreza": 3
+        "Destreza": 5
       },
       "Datos": {
         "Nombre": "Ron",
@@ -49,12 +49,12 @@
     },
     {
       "Caracteristicas": {
-        "Velocidad": 6,
-        "Armadura": 7,
-        "Fuerza": 8,
-        "Nivel": 6,
+        "Velocidad": 4,
+        "Armadura": 1,
+        "Fuerza": 2,
+        "Nivel": 5,
         "Salud": 100,
-        "Destreza": 8
+        "Destreza": 5
       },
       "Datos": {
         "Nombre": "Lanny",
@@ -65,12 +65,12 @@
     },
     {
       "Caracteristicas": {
-        "Velocidad": 8,
-        "Armadura": 4,
-        "Fuerza": 7,
-        "Nivel": 9,
+        "Velocidad": 4,
+        "Armadura": 1,
+        "Fuerza": 2,
+        "Nivel": 5,
         "Salud": 100,
-        "Destreza": 6
+        "Destreza": 5
       },
       "Datos": {
         "Nombre": "Mendy",
@@ -81,10 +81,10 @@
     },
     {
       "Caracteristicas": {
-        "Velocidad": 7,
-        "Armadura": 3,
-        "Fuerza": 4,
-        "Nivel": 8,
+        "Velocidad": 4,
+        "Armadura": 1,
+        "Fuerza": 2,
+        "Nivel": 5,
         "Salud": 100,
         "Destreza": 5
       },
@@ -98,11 +98,11 @@
     {
       "Caracteristicas": {
         "Velocidad": 4,
-        "Armadura": 5,
-        "Fuerza": 6,
-        "Nivel": 8,
+        "Armadura": 1,
+        "Fuerza": 2,
+        "Nivel": 5,
         "Salud": 100,
-        "Destreza": 6
+        "Destreza": 5
       },
       "Datos": {
         "Nombre": "Zane",
@@ -113,12 +113,12 @@
     },
     {
       "Caracteristicas": {
-        "Velocidad": 10,
-        "Armadura": 7,
-        "Fuerza": 8,
-        "Nivel": 10,
+        "Velocidad": 4,
+        "Armadura": 1,
+        "Fuerza": 2,
+        "Nivel": 5,
         "Salud": 100,
-        "Destreza": 6
+        "Destreza": 5
       },
       "Datos": {
         "Nombre": "Rory",
@@ -129,12 +129,12 @@
     },
     {
       "Caracteristicas": {
-        "Velocidad": 9,
-        "Armadura": 5,
-        "Fuerza": 3,
-        "Nivel": 7,
+        "Velocidad": 4,
+        "Armadura": 1,
+        "Fuerza": 2,
+        "Nivel": 5,
         "Salud": 100,
-        "Destreza": 6
+        "Destreza": 5
       },
       "Datos": {
         "Nombre": "Michael",
@@ -145,10 +145,10 @@
     },
     {
       "Caracteristicas": {
-        "Velocidad": 8,
-        "Armadura": 4,
-        "Fuerza": 5,
-        "Nivel": 6,
+        "Velocidad": 4,
+        "Armadura": 1,
+        "Fuerza": 2,
+        "Nivel": 5,
         "Salud": 100,
         "Destreza": 5
       },

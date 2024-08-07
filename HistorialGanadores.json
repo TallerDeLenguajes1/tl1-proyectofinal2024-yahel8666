@@ -36,15 +36,15 @@
     "Nivel": 4
   },
   {
-    "Nombre": "Dovie",
-    "Tipo": "Elfo",
-    "Salud": 92,
-    "Nivel": 8
+    "Nombre": "Teisha",
+    "Tipo": "Mago",
+    "Salud": 89,
+    "Nivel": 7
   },
   {
-    "Nombre": "Rory",
+    "Nombre": "Zane",
     "Tipo": "Enano",
-    "Salud": 26,
-    "Nivel": 10
+    "Salud": 83,
+    "Nivel": 5
   }
 ]

@@ -53,21 +53,16 @@ public class Torneo
         visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
         Thread.Sleep(2000);
         Personaje Ganador = RealizarCombate(miPersonaje, enemigo);
-        if (Ganador == miPersonaje)
-        {   
-            Thread.Sleep(1000);
-            Console.Clear();
+        Thread.Sleep(1000);
+         if (Ganador == miPersonaje)
+        {
             visuales.MensajeGanador();
-            Thread.Sleep(3000);
         }
         else
         {
-            Thread.Sleep(1000);
             visuales.MensajePerdedor();
-            Thread.Sleep(2000);
             Console.Clear();
             visuales.MensajeGameOver();
-            Thread.Sleep(3000);
         }
         return Ganador;
     }
@@ -85,21 +80,16 @@ public class Torneo
         visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
         Thread.Sleep(2000);
         Personaje Ganador = RealizarCombate(miPersonaje, enemigo);
+        Thread.Sleep(1000);
         if (Ganador == miPersonaje)
         {
-            Thread.Sleep(1000);
-            Console.Clear();
             visuales.MensajeGanador();
-            Thread.Sleep(3000);
         }
         else
         {
-            Thread.Sleep(1000);
             visuales.MensajePerdedor();
-            Thread.Sleep(2000);
             Console.Clear();
             visuales.MensajeGameOver();
-            Thread.Sleep(3000);
         }
         return Ganador;
     }
@@ -117,21 +107,18 @@ public class Torneo
         visuales.CentrarTexto($"{enemigo.Datos.Nombre}");
         Thread.Sleep(2000);
         Personaje Ganador = RealizarCombate(miPersonaje, enemigo);
+        Thread.Sleep(1000);
         if (Ganador == miPersonaje)
         {
-            Thread.Sleep(1000);
-            Console.Clear();
             visuales.MensajeGanadorFinal();
             Thread.Sleep(3000);
         }
         else
         {
-            Thread.Sleep(1000);
             visuales.MensajePerdedor();
-            Thread.Sleep(2000);
             Console.Clear();
             visuales.MensajeGameOver();
-            Thread.Sleep(3000);
+            
         }
         return Ganador;
     }
@@ -149,7 +136,7 @@ public class Torneo
             medidor++; 
             if (medidor%4==0) //cada 3 turnos, se le da la opcion de elegir un ataque especial.
             {
-                miAtaqueEspecial(miPersonaje, enemigo);
+                MiAtaqueEspecial(miPersonaje, enemigo);
                 if (enemigo.Caracteristicas.Salud <= 0)
                 {
                     Ganador = miPersonaje;
@@ -222,7 +209,7 @@ public class Torneo
         Thread.Sleep(2500);
     }
 
-    private void miAtaqueEspecial(Personaje atacante, Personaje defensor)
+    private void MiAtaqueEspecial(Personaje atacante, Personaje defensor)
     {
         int opcionAtaque;
         menu.mostrarMenuAtaque();

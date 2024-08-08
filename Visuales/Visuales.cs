@@ -314,7 +314,7 @@ public class Visuales
         Thread.Sleep(2000);
         Console.ResetColor();
         CentrarTexto("Tu nombre ha sido agregado a la lista de ganadores :) ");
-        Thread.Sleep(3000);
+        Thread.Sleep(2500);
     }
 
     public void MensajePrimerRound()

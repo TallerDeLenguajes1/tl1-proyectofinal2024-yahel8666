@@ -17,8 +17,6 @@ List<Ganador> listadoGanadores;
 Personaje personajeSeleccionado;
 string archivoJson = "archivoPersonajes.json";
 string archivoGanadores = "HistorialGanadores.json";
-
-
 visuales.Titulo();
 // texto.MensajePresentacion();
 int opcionMenu;
@@ -50,7 +48,6 @@ do
             visuales.MostrarUnPersonaje(personajeSeleccionado);
             await texto.MensajeObteniendoEnemigos();
             ListadoDeEnemigos = seleccionPersonaje.ObtenerEnemigos(listadoDePersonajes);
-            // texto.MensajeNuevoTorneo();
             await nuevoTorneo.InicioTorneo(personajeSeleccionado, ListadoDeEnemigos);
             break;
         case 2:

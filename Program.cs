@@ -1,6 +1,6 @@
 ﻿using miProyecto;
 using WebApiProyecto;
-
+//_____________________; 
 //instancias de clases: 
 var personajesJson = new PersonajesJson();
 var fabrica = new fabricaPersonajes();
@@ -19,7 +19,7 @@ string archivoJson = "archivoPersonajes.json";
 string archivoGanadores = "HistorialGanadores.json";
 
 
-// visuales.Titulo();
+visuales.Titulo();
 // texto.MensajePresentacion();
 int opcionMenu;
 do

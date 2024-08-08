@@ -9,7 +9,7 @@ public class Visuales
         int espaciosPrevios = (anchoPantalla - texto.Length) / 2;
         Console.WriteLine(new string(' ', Math.Max(0, espaciosPrevios)) + texto);
     }
-
+    
     public void MostrarAColor(string mensaje, ConsoleColor color)
     {
         // Obtiene el ancho de la consola
@@ -18,11 +18,7 @@ public class Visuales
         // Calcula el espacio lateral necesario para centrar el mensaje
         int anchoMensaje = mensaje.Length;
         int espacioLateral = (anchoPantalla - anchoMensaje) / 2;
-
-        // Configura el color
         Console.ForegroundColor = color;
-
-        // Centra el mensaje
         Console.SetCursorPosition(espacioLateral, Console.CursorTop);
         Console.WriteLine(mensaje);
 
@@ -192,18 +188,20 @@ public class Visuales
 
           
         ";
+        Console.ForegroundColor = ConsoleColor.White;
         Console.Clear();
         Console.WriteLine("");
         Console.WriteLine("");
         CentrarASCII(tituloJuego);
         Thread.Sleep(3000);
+        Console.ResetColor();
     }
 
     public void MensajeGanador()
     {
 
         string textoGanador = @"
-   █████████    █████████    ██████   █████   █████████    █████████  ███████████ ██████████
+   █████████    █████████    ██████  █████   █████████    █████████  ███████████ ██████████
  ███░░░░░███   ███░░░░░███ ░ ██████ ░░███   ███░░░░░███  ███░░░░░███░█░░░███░░░█░░███░░░░░█
  ███     ░░░  ░███    ░███  ░███░███ ░███  ░███    ░███ ░███    ░░░ ░   ░███  ░  ░███  █ ░ 
 ░███          ░███████████  ░███░░███░███  ░███████████ ░░█████████     ░███     ░██████   
@@ -213,12 +211,13 @@ public class Visuales
   ░░░░░░░░░  ░░░░░   ░░░░░ ░░░░░    ░░░░░ ░░░░░   ░░░░░  ░░░░░░░░░     ░░░░░    ░░░░░░░░░░ 
                                                                                            
                                                                                             ";
-
+        Console.ForegroundColor = ConsoleColor.Yellow; 
         Console.Clear();
         Console.WriteLine("");
         Console.WriteLine("");
         CentrarASCII(textoGanador);
         Thread.Sleep(3000);
+        Console.ResetColor();
     }
 
     public void MensajePerdedor()
@@ -238,11 +237,13 @@ public class Visuales
                                                                                             
                                                                                                                                                        
                                                                    ";
+        Console.ForegroundColor = ConsoleColor.DarkRed;
         Console.Clear();
         Console.WriteLine("");
         Console.WriteLine("");
         CentrarASCII(textoPerdedor);
         Thread.Sleep(2000);
+        Console.ResetColor();
     }
 
     public void MensajeGameOver()
@@ -271,16 +272,18 @@ public class Visuales
                                                       
                                                       
         ";
+        Console.ForegroundColor = ConsoleColor.DarkRed;
         Console.WriteLine("");
         Console.WriteLine("");
         CentrarASCII(textoGameOver);
         Thread.Sleep(3000);
+         Console.ResetColor();
     }
 
     public void MensajeGanadorFinal()
     {
         string textoGandorFinal = @"
-    █████████    █████████   ██████   █████   █████████    █████████  ███████████ ██████████
+    █████████    █████████   ██████  █████   █████████    █████████  ███████████ ██████████
   ███░░░░░███  ███░░░░░███ ░░██████ ░░███   ███░░░░░███  ███░░░░░███░█░░░███░░░█░░███░░░░░█
  ███     ░░░  ░███    ░███  ░███░███ ░███  ░███    ░███ ░███    ░░░ ░   ░███  ░  ░███  █ ░ 
 ░███          ░███████████  ░███░░███░███  ░███████████ ░░█████████     ░███     ░██████   
@@ -303,10 +306,13 @@ public class Visuales
                                                                                            
                                                                                            
         ";
+        Console.ForegroundColor = ConsoleColor.Yellow; 
         Console.Clear();
         Console.WriteLine("");
         Console.WriteLine("");
         CentrarASCII(textoGandorFinal);
+        Thread.Sleep(3000);
+        Console.ResetColor();
     }
 
     public void MensajePrimerRound()

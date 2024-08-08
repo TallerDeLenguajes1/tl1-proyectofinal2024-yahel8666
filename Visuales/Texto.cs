@@ -2,6 +2,7 @@ namespace miProyecto;
 public class Texto
 {
     Visuales visuales = new Visuales();
+    
     public void MensajePresentacion()
     {
         string presentacion = "¡Bienvenidos a Final Fighter! En este juego, tendrás la oportunidad de convertirte en un héroe. Elige a tu personaje favorito y prepárate para enfrentarte a tres oponentes seleccionados aleatoriamente. La batalla continuará hasta que ganes todos los combates o hasta que caigas en la arena. Cada ronda te ofrece la oportunidad de realizar un ataque especial que incrementará tu poder de ataque, aunque a costa de tu defensa en el próximo turno. Estos ataques especiales están basados en los poderosos elementos de la naturaleza. Podrás elegir entre: Ataque de Aire, Fuego, Agua, y Tierra. Si sales victorioso, tu nombre será inmortalizado en la lista de ganadores históricos. ¡Prepárate para la gloria y que comience la batalla!";
@@ -37,7 +38,7 @@ public class Texto
     }
 
     private async Task Cargando()
-    {
+    { 
         int anchoPantalla = Console.WindowWidth;
         string puntos = "";
         for (int j = 0; j < 2; j++)
@@ -61,10 +62,14 @@ public class Texto
                 int anchoTexto = puntos.Length;
                 int espacioLateral = (anchoPantalla - anchoTexto) / 2;
 
+
+            Console.SetCursorPosition(espacioLateral, Console.CursorTop + 1);
+            Console.ForegroundColor = ConsoleColor.Yellow; // Cambia el color a amarillo
+            Console.Write(puntos);
+            Console.ResetColor(); // Restablece el color original
+            await Task.Delay(500);
                 // Mueve el cursor a la posición específica sin borrar la pantalla
-                Console.SetCursorPosition(espacioLateral, Console.CursorTop + 1);
-                Console.Write(puntos);
-                await Task.Delay(500);
+    
 
                 // Borra los puntos anteriores
                 Console.SetCursorPosition(espacioLateral, Console.CursorTop);
@@ -79,6 +84,7 @@ public class Texto
         Console.WriteLine();
         Console.WriteLine();
         visuales.CentrarTexto("Ahora vamos a elegir a tus enemigos");
+        visuales.MostrarAColor("--------------", ConsoleColor.DarkCyan);
         Thread.Sleep(1200);
         await Cargando();
         Console.WriteLine("");

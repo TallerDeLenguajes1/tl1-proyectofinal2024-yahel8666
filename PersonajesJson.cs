@@ -2,7 +2,6 @@ namespace miProyecto;
 using System.IO;
 using System.Text.Json;
 
-
 public class PersonajesJson
 {
     public void GuardarPersonajes(List<Personaje> personajes, string nombreArchivo)

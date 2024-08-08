@@ -15,7 +15,8 @@ namespace miProyecto
             Console.Clear();
             Console.WriteLine("");
             Console.WriteLine("");
-            visuales.CentrarTexto("Seleccione el número del personaje que desea elegir (1 a " + personajes.Count + "):");
+            visuales.CentrarTexto("Ingrese el número del personaje que desea elegir (1 a " + personajes.Count + "):");
+            visuales.MostrarAColor("-----------------------", ConsoleColor.DarkCyan);
             int numeroSeleccionado;
             bool entradaValida;
             do

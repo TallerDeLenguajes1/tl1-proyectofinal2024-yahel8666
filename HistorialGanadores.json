@@ -100,5 +100,41 @@
     "Tipo": "Enano",
     "Salud": 4,
     "Nivel": 5
+  },
+  {
+    "Nombre": "Dovie",
+    "Tipo": "Elfo",
+    "Salud": 94,
+    "Nivel": 6
+  },
+  {
+    "Nombre": "Teisha",
+    "Tipo": "Mago",
+    "Salud": 90,
+    "Nivel": 5
+  },
+  {
+    "Nombre": "Teisha",
+    "Tipo": "Mago",
+    "Salud": 96,
+    "Nivel": 5
+  },
+  {
+    "Nombre": "Dovie",
+    "Tipo": "Elfo",
+    "Salud": 66,
+    "Nivel": 6
+  },
+  {
+    "Nombre": "Dovie",
+    "Tipo": "Elfo",
+    "Salud": 97,
+    "Nivel": 6
+  },
+  {
+    "Nombre": "Dovie",
+    "Tipo": "Elfo",
+    "Salud": 89,
+    "Nivel": 6
   }
 ]

@@ -216,7 +216,7 @@ public class Visuales
         Console.WriteLine("");
         Console.WriteLine("");
         CentrarASCII(textoGanador);
-        Thread.Sleep(3000);
+        Thread.Sleep(2000);
         Console.ResetColor();
     }
 
@@ -226,11 +226,11 @@ public class Visuales
         string textoPerdedor = @"
    
   ███████████  ██████████  ███████████   ██████████  █████  █████████  ███████████  ██████████
-░░███░░░░░███░░███░░░░░ █ ░███░░░░░███ ░░███░░░░███ ░░███  ███░░░░░███░█░░░███░░░█░░███░░░░░ █
+░░███░░░░░███░░███░░░░░ █ ░███░░░░░███  ░███░░░ ░███ ░███  ███░░░░░███░█░░░███░░░█░░███░░░░░ █
  ░███    ░███ ░███  █ ░   ░███    ░███  ░███   ░░███ ░███ ░███    ░░░ ░   ░███  ░  ░███  █ ░ 
  ░██████████  ░██████     ░██████████   ░███    ░███ ░███ ░░█████████     ░███     ░██████   
  ░███░░░░░░   ░███░░█     ░███░░░░░███  ░███    ░███ ░███  ░░░░░░░░███    ░███     ░███░░█   
- ░███         ░███ ░   █  ░███    ░███  ░███    ███  ░███  ███    ░███    ░███     ░███ ░    █
+ ░███         ░███ ░   █  ░███    ░███  ░███     ███  ███  ███    ░███    ░███     ░███ ░    █
  █████        ██████████  █████   █████  ██████████  █████░░█████████     █████     ██████████
 ░░░░░        ░░░░░░░░░░  ░░░░░   ░░░░░ ░░░░░░░░░░   ░░░░░  ░░░░░░░░░     ░░░░░    ░░░░░░░░░░ 
                                                                                             
@@ -311,8 +311,10 @@ public class Visuales
         Console.WriteLine("");
         Console.WriteLine("");
         CentrarASCII(textoGandorFinal);
-        Thread.Sleep(3000);
+        Thread.Sleep(2000);
         Console.ResetColor();
+        CentrarTexto("Tu nombre ha sido agregado a la lista de ganadores :) ");
+        Thread.Sleep(3000);
     }
 
     public void MensajePrimerRound()

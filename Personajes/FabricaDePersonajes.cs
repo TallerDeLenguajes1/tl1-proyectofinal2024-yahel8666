@@ -14,7 +14,7 @@ public class fabricaPersonajes()
     private static Random random = new Random();
     public async Task<Personaje> CrearPersonajeAleatorio()
     {
-        //llamo a la api con espera  
+        //llamo a la api con atrasos  
         UsuarioAleatorio usuarioApi = await ObtenerUsuarioAleatorioConRetries();
 
         //control por si falla la api
@@ -111,7 +111,7 @@ public class fabricaPersonajes()
         return nuevoPersonaje;
     }
 
-    /*Trata de obtener un usuario aleatorio de la API utilizando reintentos con retrasos exponenciales en caso de que se produzca el error de "demasiadas solicitudes". Si después de varios intentos no se puede obtener el usuario, retorna null */
+    /*Trata de obtener un usuario aleatorio de la API utilizando reintentos con atrasos exponenciales en caso de que se produzca el error de "demasiadas solicitudes". Si después de varios intentos no se puede obtener el usuario, retorna null */
     private static async Task<UsuarioAleatorio> ObtenerUsuarioAleatorioConRetries()
     {
         int delay = initialDelay;
@@ -132,9 +132,9 @@ public class fabricaPersonajes()
                 }
                 // el código espera por un tiempo y aumenta la espera para el proximo intento 
                 await Task.Delay(delay);
-                delay *= 2; //exponencial 
+                delay *= 2; //aumentando de manera exponencial el tiempo de espera 
             }
-            catch
+            catch 
             {
                 return null;
             }

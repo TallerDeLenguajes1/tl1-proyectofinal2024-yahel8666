@@ -6,39 +6,15 @@
     "Nivel": 10
   },
   {
-    "Nombre": "Arlen",
-    "Tipo": "Elfo",
-    "Salud": 10,
-    "Nivel": 8
-  },
-  {
     "Nombre": "Mendy",
     "Tipo": "Angel",
     "Salud": 11,
     "Nivel": 4
   },
   {
-    "Nombre": "Victoria",
-    "Tipo": "Angel",
-    "Salud": 35,
-    "Nivel": 6
-  },
-  {
     "Nombre": "Arlen",
     "Tipo": "Elfo",
     "Salud": 26,
     "Nivel": 8
-  },
-  {
-    "Nombre": "Mendy",
-    "Tipo": "Angel",
-    "Salud": 25,
-    "Nivel": 4
-  },
-  {
-    "Nombre": "Teisha",
-    "Tipo": "Mago",
-    "Salud": 89,
-    "Nivel": 7
   }
 ]

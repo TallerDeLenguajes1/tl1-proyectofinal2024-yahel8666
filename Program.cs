@@ -1,7 +1,6 @@
 ﻿using miProyecto;
-using WebApiProyecto;
-//_____________________; 
-//instancias de clases: 
+// using WebApiProyecto;
+
 var personajesJson = new PersonajesJson();
 var fabrica = new fabricaPersonajes();
 var seleccionPersonaje = new SeleccionPersonaje();
@@ -10,6 +9,7 @@ var nuevoTorneo = new Torneo();
 var menu = new Menu();
 var historial = new HistorialJson();
 var texto = new Texto();
+var sonido = new Sonido(); 
 
 List<Personaje> listadoDePersonajes;
 List<Personaje> ListadoDeEnemigos;
@@ -17,8 +17,12 @@ List<Ganador> listadoGanadores;
 Personaje personajeSeleccionado;
 string archivoJson = "archivoPersonajes.json";
 string archivoGanadores = "HistorialGanadores.json";
+
+
+//Comienza el juego: 
+sonido.ReproducirSonidoBucle("Media/intro.wav");
 visuales.Titulo();
-// texto.MensajePresentacion();
+texto.MensajePresentacion();
 int opcionMenu;
 do
 {
@@ -48,6 +52,7 @@ do
             visuales.MostrarUnPersonaje(personajeSeleccionado);
             await texto.MensajeObteniendoEnemigos();
             ListadoDeEnemigos = seleccionPersonaje.ObtenerEnemigos(listadoDePersonajes);
+            sonido.PararSonidoBucle();
             await nuevoTorneo.InicioTorneo(personajeSeleccionado, ListadoDeEnemigos);
             break;
         case 2:
@@ -55,6 +60,7 @@ do
             visuales.MostrarHistorialGanadores(listadoGanadores);
             break;
         case 3:
+            sonido.ReproducirSonido("Media/byebye.wav");
             texto.MensajeDespedida();
             break;
     }

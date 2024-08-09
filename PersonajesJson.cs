@@ -21,13 +21,8 @@ public class PersonajesJson
         {
             string jsonString = File.ReadAllText(nombreArchivo);
             var personajesDeserializados = JsonSerializer.Deserialize<List<Personaje>>(jsonString);
-            if (personajesDeserializados != null)
-            {
-                listadoPersonajes = personajesDeserializados;
-            }
-        } else {
-            Console.WriteLine("No existe el archivo de personajes.");
-        }
+            listadoPersonajes = personajesDeserializados;
+        } 
         return listadoPersonajes;
     }
 

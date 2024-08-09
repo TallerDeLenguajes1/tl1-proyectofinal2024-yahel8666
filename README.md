@@ -4,7 +4,7 @@
 
 #### ¡Bienvenidos a Final Fighter! En este juego, tendrás la oportunidad de convertirte en un héroe. Preparate para la gloria. 
 
-## Infromacion sobre el juego 
+## Informacion sobre el juego 
 
 Final Figther es un juego de rol por turnos donde los jugadores eligen un personaje único para enfrentarse a una serie de combates. En cada partida, tu personaje seleccionado se medirá contra tres oponentes elegidos aleatoriamente, uno tras otro. El objetivo es sobrevivir a cada batalla y avanzar a la siguiente ronda, pero si tu personaje es derrotado, el juego termina.
 
@@ -30,9 +30,13 @@ Para crear un ambiente de combate en el juego decidí agregar música de fondo y
 Para descargar los sonidos utilizados se uso la página: https://ytconverter.app/es/youtube-to-wav/ 
 
 **Creditos**
+
 **Intro:** https://www.youtube.com/watch?v=LPdQ4T6lb2M
+
 **Efecto al perder**: https://www.youtube.com/watch?v=qZIZ9ZqqgjY
+
 **Efecto al ganar**: https://www.youtube.com/watch?v=rr5CMS2GtCY
+
 **Efecto al empezar otra ronda**: https://www.youtube.com/watch?v=DO51tuTnzUI 
 
 ### Graficos
@@ -43,4 +47,5 @@ La inteligencia artificial, especialmente ChatGPT y Geminis fueron herramientas 
 
 ##  Autora
 **Nombre**: Camisay, Martina Yahel. 
+
 **Carrera**: Programador Universitario.  

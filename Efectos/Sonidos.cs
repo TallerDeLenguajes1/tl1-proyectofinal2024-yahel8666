@@ -63,7 +63,7 @@ public class Sonido
     }
     catch (Exception ex)
     {
-        // Captura cualquier excepción y opcionalmente puedes hacer logging
+        // Captura cualquier excepción
         Console.WriteLine("Error al detener el sonido: " + ex.Message);
     }
 }

@@ -9,7 +9,7 @@ public class MiApi()
 {
     public static async Task<UsuarioAleatorio> GetGeneraUsuario()
     {
-
+        
         var url = "https://random-data-api.com/api/v2/users?size=1";
 
         /*Se envía una solicitud GET a la URL especificada y se verifica que la

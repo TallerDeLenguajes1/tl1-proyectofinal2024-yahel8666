@@ -15,6 +15,7 @@ List<Personaje> listadoDePersonajes;
 List<Personaje> ListadoDeEnemigos;
 List<Ganador> listadoGanadores;
 Personaje personajeSeleccionado;
+
 string archivoJson = "archivoPersonajes.json";
 string archivoGanadores = "HistorialGanadores.json";
 

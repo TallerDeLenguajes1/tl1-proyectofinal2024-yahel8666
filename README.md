@@ -48,4 +48,4 @@ La inteligencia artificial, especialmente ChatGPT y Geminis fueron herramientas 
 ##  Autora
 **Nombre**: Camisay, Martina Yahel. 
 
-**Carrera**: Programadora Universitario.  
+**Carrera**: Programadora Universitaria.  

@@ -16,5 +16,11 @@
     "Tipo": "Elfo",
     "Salud": 26,
     "Nivel": 8
+  },
+  {
+    "Nombre": "Zane",
+    "Tipo": "Enano",
+    "Salud": 19,
+    "Nivel": 8
   }
 ]

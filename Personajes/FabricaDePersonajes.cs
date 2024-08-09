@@ -130,6 +130,7 @@ public class fabricaPersonajes()
                 {
                     return null;
                 }
+                
                 // el código espera por un tiempo y aumenta la espera para el proximo intento 
                 await Task.Delay(delay);
                 delay *= 2; //aumentando de manera exponencial el tiempo de espera 
